@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:self_love/pages/main/main_page.dart';
+import 'package:self_love/pages/profile/profile_page.dart';
 import 'package:self_love/pages/registration/register_page.dart';
 
 import '../pages/home_page.dart';
@@ -19,6 +21,8 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder> {
         '/register': (BuildContext context) => const RegisterPage(),
         '/login': (BuildContext context) => const LoginPage(),
+        '/profile': (BuildContext context) => const ProfilePage(),
+        '/main': (BuildContext context) => const MainPage()
       },
     );
   }

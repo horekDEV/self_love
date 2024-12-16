@@ -20,8 +20,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 Color(0xFFF3C8D8),
                 Color(0xFFF8E8EE)
               ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight
           ),
         ),
         child: Center(
@@ -136,7 +136,99 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               const SizedBox(height: 58),
               InkWell(
-                onTap: () => Navigator.pushNamed(context, '/main'),
+                onTap: () {
+                  Dialog errorDialog = Dialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFEEB8CC),
+                        borderRadius: BorderRadius.all(Radius.circular(25)),
+                      ),
+                      height: 370.0,
+                      width: 310.0,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            child: Text(
+                              "Какие чувства вы сейчас испытываете?",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              //TODO(отображение картинок)
+                              SvgPicture.asset(
+                                "assets/registrationIcons/apple.svg",
+                                width: 30,
+                                height: 30,
+                              ),
+                              SvgPicture.asset(
+                                "assets/registrationIcons/apple.svg",
+                                width: 30,
+                                height: 30,
+                              ),
+                              SvgPicture.asset(
+                                "assets/registrationIcons/apple.svg",
+                                width: 30,
+                                height: 30,
+                              ),
+                              SvgPicture.asset(
+                                "assets/registrationIcons/apple.svg",
+                                width: 30,
+                                height: 30,
+                              ),
+                              SvgPicture.asset(
+                                "assets/registrationIcons/apple.svg",
+                                width: 30,
+                                height: 30,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 30),
+                          InkWell(
+                            onTap: () {
+                              // TODO(проверка на то что самочувствие было выбрано)
+                              Navigator.pushNamed(context, '/main');
+                            },
+                            child: Container(
+                              height: 55,
+                              width: 220,
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFFCC9DC),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  "Продолжить",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                  showDialog(context: context,
+                      builder: (BuildContext context) => errorDialog);
+                },
                 child: Container(
                   height: 55,
                   width: 220,
@@ -181,24 +273,25 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               ),
+              const SizedBox(height: 15),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
-                      "assets/registrationIcons/google.svg",
+                    "assets/registrationIcons/google.svg",
                     width: 45,
                     height: 45,
                   ),
                   SvgPicture.asset(
                     "assets/registrationIcons/apple.svg",
-                    width: 45,
-                    height: 45,
+                    width: 50,
+                    height: 50,
                   ),
                   SvgPicture.asset(
                     "assets/registrationIcons/vk.svg",
-                    width: 45,
-                    height: 45,
+                    width: 55,
+                    height: 55,
                   ),
                 ],
               )

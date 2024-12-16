@@ -23,6 +23,11 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 122),
+                //TODO(отображение картинку лого)
+                // ERROR (
+                //  flutter: unhandled element <style/>; Picture key: Svg loader
+                // flutter: unhandled element <metadata/>; Picture key: Svg loader
+                // )
                 SvgPicture.asset(
                   "assets/homeIcons/logo.svg",
                   width: 150,
