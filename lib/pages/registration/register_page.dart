@@ -201,7 +201,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           InkWell(
                             onTap: () {
                               // TODO(проверка на то что самочувствие было выбрано)
-                              Navigator.pushNamed(context, '/main');
+                              Navigator.pushNamed(context, '/code');
                             },
                             child: Container(
                               height: 55,

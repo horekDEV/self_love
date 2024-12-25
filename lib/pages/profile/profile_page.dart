@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
+  // TODO (доделать картинки, график, а так же положения текста)
+
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }

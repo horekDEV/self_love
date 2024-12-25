@@ -164,10 +164,10 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           const SizedBox(height: 30),
                           InkWell(
-                              onTap: () {
-                                // TODO(проверка на то что самочувствие было выбрано)
-                                Navigator.pushNamed(context, '/main');
-                              } ,
+                            onTap: () {
+                              // TODO(проверка на то что самочувствие было выбрано)
+                              Navigator.pushNamed(context, '/code');
+                            },
                             child: Container(
                               height: 55,
                               width: 220,
@@ -191,6 +191,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   );
+                  showDialog(context: context,
+                      builder: (BuildContext context) => errorDialog);
                 },
                 child: Container(
                   height: 55,

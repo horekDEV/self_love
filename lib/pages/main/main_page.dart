@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
+  // TODO (Доделать картинки)
+
   @override
   State<MainPage> createState() => _MainPageState();
 }
@@ -160,72 +162,81 @@ class _MainPageState extends State<MainPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 58),
-                    child: Container(
-                      width: 180,
-                      height: 105,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFFDCEDF),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                      child: Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 10),
-                            child: Text(
-                              "Пройти тестирование",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
+                  InkWell(
+                    // TODO (переход на тестирование)
+                    onTap: () => Navigator.pushNamed(context, '/'),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 58),
+                      child: Container(
+                        width: 180,
+                        height: 105,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFFDCEDF),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(top: 10),
+                              child: Text(
+                                "Пройти тестирование",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 6),
-                          SvgPicture.asset(
-                            "assets/mainIcons/brain.svg",
-                            width: 50,
-                            height: 50,
-                          ),
-                        ],
+                            const SizedBox(height: 6),
+                            SvgPicture.asset(
+                              "assets/mainIcons/brain.svg",
+                              width: 50,
+                              height: 50,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 58),
-                    child: Container(
-                      width: 180,
-                      height: 105,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFFDCEDF),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                      child: Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 10),
-                            child: Text(
-                              "Начать проходить упражнения!",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
+                  InkWell(
+                    // TODO (доделать переход на упражнения приложения)
+                    onTap: () => Navigator.pushNamed(context, '/'),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 58),
+                      child: Container(
+                        width: 180,
+                        height: 105,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFFDCEDF),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(top: 10),
+                              child: Text(
+                                "Начать проходить упражнения!",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 6),
-                          SvgPicture.asset(
-                            "assets/mainIcons/brain.svg",
-                            width: 50,
-                            height: 50,
-                          ),
-                        ],
+                            const SizedBox(height: 6),
+                            SvgPicture.asset(
+                              "assets/mainIcons/brain.svg",
+                              width: 50,
+                              height: 50,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
+              // TODO (Сделать переход на странички)
               const Padding(
                 padding: EdgeInsets.only(top: 52),
                 child: Text(
