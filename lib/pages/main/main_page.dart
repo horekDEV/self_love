@@ -163,8 +163,7 @@ class _MainPageState extends State<MainPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   InkWell(
-                    // TODO (переход на тестирование)
-                    onTap: () => Navigator.pushNamed(context, '/'),
+                    onTap: () => Navigator.pushNamed(context, '/test'),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 58),
                       child: Container(
