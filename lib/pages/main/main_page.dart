@@ -5,14 +5,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
-  // TODO (Доделать картинки)
-
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
   final CarouselController _controller = CarouselController();
+  final CarouselSliderController controller = CarouselSliderController();
   int _currentIndex = 0;
   final List<String> motivationalPhrases = [
     "Научись любить себя, прежде чем кого-то полюбить",
@@ -187,8 +186,8 @@ class _MainPageState extends State<MainPage> {
                               ),
                             ),
                             const SizedBox(height: 6),
-                            SvgPicture.asset(
-                              "assets/mainIcons/brain.svg",
+                            Image.asset(
+                              "assets/mainIcons/brain.png",
                               width: 50,
                               height: 50,
                             ),
@@ -198,7 +197,6 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                   InkWell(
-                    // TODO (доделать переход на упражнения приложения)
                     onTap: () => Navigator.pushNamed(context, '/'),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 58),
@@ -223,8 +221,8 @@ class _MainPageState extends State<MainPage> {
                               ),
                             ),
                             const SizedBox(height: 6),
-                            SvgPicture.asset(
-                              "assets/mainIcons/brain.svg",
+                            Image.asset(
+                              "assets/mainIcons/ellipse.png",
                               width: 50,
                               height: 50,
                             ),
@@ -254,30 +252,36 @@ class _MainPageState extends State<MainPage> {
                     CarouselSlider.builder(
                       itemCount: carouselImages.length,
                       options: CarouselOptions(
-                        height: 135,
+                        height: 250,
                         enlargeCenterPage: true,
                         enableInfiniteScroll: true,
                         autoPlay: false,
+                        aspectRatio: 9/16,
+                        viewportFraction: 0.4,
                         onPageChanged: (index, reason) {
                           setState(() {
                             _currentIndex = index;
                           });
                         },
                       ),
+                      carouselController: controller,
                       itemBuilder: (context, index, realIndex) {
                         return Container(
-                          width: 210,
-                          height: 135,
+                          width: 180,
+                          height: 250,
                           decoration: BoxDecoration(
                             color: const Color(0xFFF2BED1),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              SvgPicture.asset(
-                                carouselImages[index],
-                                height: 90,
-                                width: 80,
+                              SizedBox(
+                                height: 150,
+                                child: Image.asset(
+                                  carouselImages[index],
+                                  fit: BoxFit.cover
+                                ),
                               ),
                               Text(
                                 carouselText[index],
@@ -288,6 +292,24 @@ class _MainPageState extends State<MainPage> {
                                 ),
                                 textAlign: TextAlign.center,
                               ),
+                              Container(
+                                height: 35,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(255, 240, 161, 190),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "Перейти",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         );
@@ -299,11 +321,11 @@ class _MainPageState extends State<MainPage> {
                       children: [
                         IconButton(
                           icon: const Icon(Icons.arrow_back),
-                          onPressed: previousPage,
+                          onPressed: () => controller.previousPage(),
                         ),
                         IconButton(
                           icon: const Icon(Icons.arrow_forward),
-                          onPressed: nextPage,
+                          onPressed: () => controller.nextPage(),
                         ),
                       ],
                     ),

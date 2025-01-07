@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:re_svg/re_svg.dart';
+import 'package:self_love/main.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -23,16 +28,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 122),
-                //TODO(отображение картинку лого)
-                // ERROR (
-                //  flutter: unhandled element <style/>; Picture key: Svg loader
-                // flutter: unhandled element <metadata/>; Picture key: Svg loader
-                // )
-                SvgPicture.asset(
-                  "assets/homeIcons/logo.svg",
-                  width: 150,
-                  height: 150,
-                ),
+                SizedBox(width: 150, height: 150, child: SvgView(data: logo),),
                 const SizedBox(height: 30),
                 const Text(
                   "Добро пожаловать",

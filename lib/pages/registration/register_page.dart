@@ -9,7 +9,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
+  int selectedMood = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,31 +169,45 @@ class _RegisterPageState extends State<RegisterPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              //TODO(отображение картинок)
-                              SvgPicture.asset(
-                                "assets/registrationIcons/apple.svg",
-                                width: 30,
-                                height: 30,
+                              GestureDetector(
+                                child: Image.asset(
+                                  "assets/alertIcons/sad.png",
+                                  width: selectedMood == 1 ? 30 : 35,
+                                  height: selectedMood == 1 ? 30 : 35,
+                                ),
+                                onTap: () => setState(() {selectedMood = 1;})
                               ),
-                              SvgPicture.asset(
-                                "assets/registrationIcons/apple.svg",
-                                width: 30,
-                                height: 30,
+                              GestureDetector(
+                                child: Image.asset(
+                                  "assets/alertIcons/notsad.png",
+                                  width: selectedMood == 2 ? 30 : 35,
+                                  height: selectedMood == 2 ? 30 : 35,
+                                ),
+                                onTap: () => setState(() {selectedMood = 2;})
                               ),
-                              SvgPicture.asset(
-                                "assets/registrationIcons/apple.svg",
-                                width: 30,
-                                height: 30,
+                              GestureDetector(
+                                child: Image.asset(
+                                  "assets/alertIcons/idk.png",
+                                  width: selectedMood == 3 ? 30 : 35,
+                                  height: selectedMood == 3 ? 30 : 35,
+                                ),
+                                onTap: () => setState(() {selectedMood = 3;})
                               ),
-                              SvgPicture.asset(
-                                "assets/registrationIcons/apple.svg",
-                                width: 30,
-                                height: 30,
+                              GestureDetector(
+                                child: Image.asset(
+                                  "assets/alertIcons/verygood.png",
+                                  width: selectedMood == 4 ? 30 : 35,
+                                  height: selectedMood == 4 ? 30 : 35,
+                                ),
+                                onTap: () => setState(() {selectedMood = 4;})
                               ),
-                              SvgPicture.asset(
-                                "assets/registrationIcons/apple.svg",
-                                width: 30,
-                                height: 30,
+                              GestureDetector(
+                                child: Image.asset(
+                                  "assets/alertIcons/happy.png",
+                                  width: selectedMood == 5 ? 45 : 30,
+                                  height: selectedMood == 5 ? 45 : 30,
+                                ),
+                                onTap: () => setState(() {selectedMood = 5;})
                               ),
                             ],
                           ),
