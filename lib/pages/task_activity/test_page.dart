@@ -112,6 +112,7 @@ class _TestPageState extends State<TestPage> {
             InkWell(
               onTap: () {
                 setState(() {
+                  // FIXME(Сделать переключение вопросов корректным)
                   questionAnswers.add(sliderValue);
                   if (count == questions.length - 1) {
                     Fluttertoast.showToast(
