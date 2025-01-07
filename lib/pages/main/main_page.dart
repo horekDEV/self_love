@@ -104,6 +104,7 @@ class _MainPageState extends State<MainPage> {
                     SvgPicture.asset(
                       "assets/mainIcons/ellipse.svg",
                     ),
+                    // TODO(Добавить больше вариаций текстов, а так же размещать его в овале учитывая его размеры)
                     Text(
                       randomPhrase,
                       textAlign: TextAlign.center,

@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,6 +9,8 @@ class ProfilePage extends StatefulWidget {
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
+
+double value = 0.0;
 
 class _ProfilePageState extends State<ProfilePage> {
   List<bool> isCheckedList = [false, false, false, false];
@@ -82,8 +83,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset(
-                        "assets/profileIcons/pen.svg",
+                      //FIXME(починить картинку)
+                      Image.asset(
+                        "assets/profileIcons/pen.png",
                         width: 10,
                         height: 10,
                       ),
@@ -121,7 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Stack(
                     children: [
                       Container(
-                        width: 335 * 0.67,
+                        width: 335 * value,
                         height: 40,
                         decoration: const BoxDecoration(
                           color: Color(0xFFF2BED1),
@@ -129,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       const Center(
                         child: Text(
-                          "67%",
+                          "num",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,

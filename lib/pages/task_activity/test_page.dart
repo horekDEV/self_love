@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:self_love/pages/profile/profile_page.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});
@@ -12,37 +12,32 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   double sliderValue = 50.0;
   int count = 0;
+  static List<double> questionAnswers = List.empty();
   List<String> questions = [
-    "бла 1",
-    "бла 2",
-    "бла 3",
-    "бла 4",
-    "бла 5",
-    "бла 6",
-    "бла 7",
-    "бла 8",
-    "бла 9",
-    "бла 10",
-    "бла 11",
-    "бла 12",
-    "бла 13",
-    "бла 14",
-    "бла 15",
-    "бла 16",
-    "бла 17",
-    "бла 18",
-    "бла 19",
-    "бла 20",
-    "бла 21",
-    "бла 22",
-    "бла 23",
-    "бла 24",
-    "бла 25",
-    "бла 26",
-    "бла 27",
-    "бла 28",
-    "бла 29",
-    "бла 30",
+    "Я принимаю себя таким(ой), какой(ая) я есть, со всеми достоинствами и недостатками.",
+    "Мне не нужно одобрение окружающих, чтобы чувствовать себя ценным(ой).",
+    "Я не сравниваю себя с другими и не обесцениваю свои достижения.",
+    "Мне легко сказать «нет», когда что-то противоречит моим интересам.",
+    "Я не чувствую себя виноватым(ой), когда отстаиваю свои границы.",
+    "Я не жертвую собой ради чужого одобрения.",
+    "Я осознаю свои эмоции и понимаю, почему они возникают.",
+    "Я понимаю, что влияет на мои решения и реакции.",
+    "Я могу находиться «здесь и сейчас», не отвлекаясь на прошлое или будущее.",
+    "Я не ругаю себя за ошибки, а учусь на них.",
+    "Я позволяю себе отдыхать, когда чувствую усталость.",
+    "Я проявляю терпение и доброту к себе в сложных ситуациях.",
+    "Я способен(на) прощать себя за прошлые ошибки.",
+    "Я отпускаю обиды на других, чтобы не носить их в себе.",
+    "Я позволяю себе двигаться вперёд, несмотря на прошлые ошибки.",
+    "Я позволяю себе радоваться мелочам и играть.",
+    "Я слышу свои истинные желания, а не только рациональные аргументы.",
+    "Я даю себе разрешение на отдых, радость и спонтанность.",
+    "Я умею распознавать свои эмоции.",
+    "Я умею выражать свои чувства экологично и честно.",
+    "Я не подавляю свои чувства, а позволяю им проявляться.",
+    "Я регулярно выделяю время для отдыха и восстановления.",
+    "Я слежу за своим физическим здоровьем (питание, сон, активность).",
+    "Я позволяю себе заниматься тем, что приносит радость.",
   ];
 
   @override
@@ -87,15 +82,15 @@ class _TestPageState extends State<TestPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SvgPicture.asset(
-                  "assets/registrationIcons/google.svg",
+                Image.asset(
+                  "assets/alertIcons/sad.png",
                   width: 45,
-                  height: 45,
+                  height: 45
                 ),
-                SvgPicture.asset(
-                  "assets/registrationIcons/google.svg",
-                  width: 45,
-                  height: 45,
+                Image.asset(
+                    "assets/alertIcons/verygood.png",
+                    width: 45,
+                    height: 45
                 ),
               ],
             ),
@@ -117,6 +112,7 @@ class _TestPageState extends State<TestPage> {
             InkWell(
               onTap: () {
                 setState(() {
+                  questionAnswers.add(sliderValue);
                   if (count == questions.length - 1) {
                     Fluttertoast.showToast(
                       msg: "Вы успешно завершили тестирование!",

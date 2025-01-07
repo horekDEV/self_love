@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -214,8 +215,19 @@ class _RegisterPageState extends State<RegisterPage> {
                           const SizedBox(height: 30),
                           InkWell(
                             onTap: () {
-                              // TODO(проверка на то что самочувствие было выбрано)
-                              Navigator.pushNamed(context, '/code');
+                              if (selectedMood != 0) {
+                                Navigator.pushNamed(context, '/code');
+                              } else {
+                                Fluttertoast.showToast(
+                                  msg: "Пожалуйста выберете ваши чувства",
+                                  toastLength: Toast.LENGTH_LONG,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.pinkAccent,
+                                  textColor: Colors.white,
+                                  fontSize: 14.0,
+                                );
+                              }
                             },
                             child: Container(
                               height: 55,
