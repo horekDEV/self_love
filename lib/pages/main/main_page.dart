@@ -19,6 +19,12 @@ class _MainPageState extends State<MainPage> {
     "Каждый день — это новый шанс стать лучше"
   ];
 
+  final Map<String, double> phraseSizes = {
+    "Научись любить себя, прежде чем кого-то полюбить": 11,
+    "Ты прекрасен таким, какой ты есть": 14 ,
+    "Каждый день — это новый шанс стать лучше": 13
+  };
+
   final List<String> carouselImages = [
     "assets/images/image1.png",
     "assets/images/image2.png",
@@ -31,7 +37,7 @@ class _MainPageState extends State<MainPage> {
     "Дневник мыслей"
   ];
 
-  String get randomPhrase => (motivationalPhrases..shuffle()).first;
+  String get randomPhrase => (motivationalPhrases..shuffle()).first; 
 
   void nextPage() {
     _controller.nextPage(
@@ -104,14 +110,13 @@ class _MainPageState extends State<MainPage> {
                     SvgPicture.asset(
                       "assets/mainIcons/ellipse.svg",
                     ),
-                    // TODO(Добавить больше вариаций текстов, а так же размещать его в овале учитывая его размеры)
                     Text(
                       randomPhrase,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 11,
+                      style: TextStyle(
+                        fontSize: phraseSizes[randomPhrase],
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFFFDA1C3),
+                        color: Color(0xFFFDA1C3), 
                       ),
                     ),
                   ],
@@ -198,7 +203,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () => Navigator.pushNamed(context, '/'),
+                    onTap: () => Navigator.pushNamed(context, '/road'),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 58),
                       child: Container(
@@ -253,8 +258,9 @@ class _MainPageState extends State<MainPage> {
                     CarouselSlider.builder(
                       itemCount: carouselImages.length,
                       options: CarouselOptions(
-                        height: 250,
+                        height: 302,
                         enlargeCenterPage: true,
+                        enlargeStrategy: CenterPageEnlargeStrategy.zoom,
                         enableInfiniteScroll: true,
                         autoPlay: false,
                         aspectRatio: 9/16,
@@ -269,7 +275,7 @@ class _MainPageState extends State<MainPage> {
                       itemBuilder: (context, index, realIndex) {
                         return Container(
                           width: 180,
-                          height: 250,
+                          height: 2302,
                           decoration: BoxDecoration(
                             color: const Color(0xFFF2BED1),
                             borderRadius: BorderRadius.circular(20),

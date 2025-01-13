@@ -83,11 +83,16 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      //FIXME(починить картинку)
-                      Image.asset(
-                        "assets/profileIcons/pen.png",
-                        width: 10,
-                        height: 10,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Image.asset(
+                            "assets/profileIcons/pen.png",
+                            width: 10,
+                            height: 10,
+                          ),
+                          const SizedBox(width: 25)
+                        ]
                       ),
                       const Text(
                         "Test text",

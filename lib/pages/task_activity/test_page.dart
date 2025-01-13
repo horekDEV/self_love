@@ -12,7 +12,7 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   double sliderValue = 50.0;
   int count = 0;
-  static List<double> questionAnswers = List.empty();
+  List<double> questionAnswers = [];
   List<String> questions = [
     "Я принимаю себя таким(ой), какой(ая) я есть, со всеми достоинствами и недостатками.",
     "Мне не нужно одобрение окружающих, чтобы чувствовать себя ценным(ой).",
@@ -112,7 +112,6 @@ class _TestPageState extends State<TestPage> {
             InkWell(
               onTap: () {
                 setState(() {
-                  // FIXME(Сделать переключение вопросов корректным)
                   questionAnswers.add(sliderValue);
                   if (count == questions.length - 1) {
                     Fluttertoast.showToast(

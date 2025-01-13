@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:self_love/pages/main/main_page.dart';
+import 'package:self_love/pages/main/road_page.dart';
 import 'package:self_love/pages/profile/profile_page.dart';
 import 'package:self_love/pages/registration/register_page.dart';
 import 'package:self_love/pages/registration/send_code_page.dart';
+import 'package:self_love/pages/task_activity/task_page.dart';
 import 'package:self_love/pages/task_activity/test_page.dart';
 
 import '../pages/home_page.dart';
@@ -26,7 +28,9 @@ class MyApp extends StatelessWidget {
         '/code': (BuildContext context) => const SendCodePage(),
         '/profile': (BuildContext context) => const ProfilePage(),
         '/main': (BuildContext context) => const MainPage(),
-        '/test': (BuildContext context) => const TestPage()
+        '/test': (BuildContext context) => const TestPage(),
+        '/road': (BuildContext context) => const RoadPage(),
+        '/task': (BuildContext context) => const TaskPage()
       },
     );
   }

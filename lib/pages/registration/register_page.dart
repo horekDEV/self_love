@@ -138,7 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 58),
               InkWell(
                 onTap: () {
-                  Dialog errorDialog = Dialog(
+                  final errorDialog = StatefulBuilder(builder: (context, setState) => Dialog(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25.0),
                     ),
@@ -173,42 +173,42 @@ class _RegisterPageState extends State<RegisterPage> {
                               GestureDetector(
                                 child: Image.asset(
                                   "assets/alertIcons/sad.png",
-                                  width: selectedMood == 1 ? 30 : 35,
-                                  height: selectedMood == 1 ? 30 : 35,
+                                  width: selectedMood == 1 ? 35 : 30,
+                                  height: selectedMood == 1 ? 35 : 30,
                                 ),
-                                onTap: () => setState(() {selectedMood = 1;})
+                                onTap: () => setState(() {selectedMood == 1 ? selectedMood = 0 : selectedMood = 1;})
                               ),
                               GestureDetector(
                                 child: Image.asset(
                                   "assets/alertIcons/notsad.png",
-                                  width: selectedMood == 2 ? 30 : 35,
-                                  height: selectedMood == 2 ? 30 : 35,
+                                  width: selectedMood == 2 ? 35 : 30,
+                                  height: selectedMood == 2 ? 35 : 30,
                                 ),
-                                onTap: () => setState(() {selectedMood = 2;})
+                                onTap: () => setState(() {selectedMood == 2 ? selectedMood = 0 : selectedMood = 2;})
                               ),
                               GestureDetector(
                                 child: Image.asset(
                                   "assets/alertIcons/idk.png",
-                                  width: selectedMood == 3 ? 30 : 35,
-                                  height: selectedMood == 3 ? 30 : 35,
+                                  width: selectedMood == 3 ? 35 : 30,
+                                  height: selectedMood == 3 ? 35 : 30,
                                 ),
-                                onTap: () => setState(() {selectedMood = 3;})
+                                onTap: () => setState(() {selectedMood == 3 ? selectedMood = 0 : selectedMood = 3;})
                               ),
                               GestureDetector(
                                 child: Image.asset(
                                   "assets/alertIcons/verygood.png",
-                                  width: selectedMood == 4 ? 30 : 35,
-                                  height: selectedMood == 4 ? 30 : 35,
+                                  width: selectedMood == 4 ? 35 : 30,
+                                  height: selectedMood == 4 ? 35 : 30,
                                 ),
-                                onTap: () => setState(() {selectedMood = 4;})
+                                onTap: () => setState(() {selectedMood == 4 ? selectedMood = 0 : selectedMood = 4;})
                               ),
                               GestureDetector(
                                 child: Image.asset(
                                   "assets/alertIcons/happy.png",
-                                  width: selectedMood == 5 ? 45 : 30,
-                                  height: selectedMood == 5 ? 45 : 30,
+                                  width: selectedMood == 5 ? 35 : 30,
+                                  height: selectedMood == 5 ? 35 : 30,
                                 ),
-                                onTap: () => setState(() {selectedMood = 5;})
+                                onTap: () => setState(() {selectedMood == 5 ? selectedMood = 0 : selectedMood = 5;})
                               ),
                             ],
                           ),
@@ -251,7 +251,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ],
                       ),
                     ),
-                  );
+                  ));
                   showDialog(context: context,
                       builder: (BuildContext context) => errorDialog);
                 },
