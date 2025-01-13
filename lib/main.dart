@@ -1,10 +1,16 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'features/myApp.dart';
 
 void main() {
+  phraseNum = Random().nextInt(phraseLength);
   runApp(const MyApp());
 }
+
+int phraseNum = 0;
+int phraseLength = 2;
 
 String logo = '''<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">

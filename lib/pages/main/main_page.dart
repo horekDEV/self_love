@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:self_love/main.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -19,11 +20,7 @@ class _MainPageState extends State<MainPage> {
     "Каждый день — это новый шанс стать лучше"
   ];
 
-  final Map<String, double> phraseSizes = {
-    "Научись любить себя, прежде чем кого-то полюбить": 11,
-    "Ты прекрасен таким, какой ты есть": 14 ,
-    "Каждый день — это новый шанс стать лучше": 13
-  };
+  final List<double> phraseSizes = [11, 14, 13];
 
   final List<String> carouselImages = [
     "assets/images/image1.png",
@@ -111,10 +108,10 @@ class _MainPageState extends State<MainPage> {
                       "assets/mainIcons/ellipse.svg",
                     ),
                     Text(
-                      randomPhrase,
+                      motivationalPhrases[phraseNum],
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: phraseSizes[randomPhrase],
+                        fontSize: phraseSizes[phraseNum],
                         fontWeight: FontWeight.bold,
                         color: Color(0xFFFDA1C3), 
                       ),
@@ -258,13 +255,12 @@ class _MainPageState extends State<MainPage> {
                     CarouselSlider.builder(
                       itemCount: carouselImages.length,
                       options: CarouselOptions(
-                        height: 302,
+                        height: 310,
                         enlargeCenterPage: true,
-                        enlargeStrategy: CenterPageEnlargeStrategy.zoom,
                         enableInfiniteScroll: true,
                         autoPlay: false,
-                        aspectRatio: 9/16,
-                        viewportFraction: 0.4,
+                        aspectRatio: 12/16,
+                        viewportFraction: 0.45,
                         onPageChanged: (index, reason) {
                           setState(() {
                             _currentIndex = index;
@@ -274,8 +270,8 @@ class _MainPageState extends State<MainPage> {
                       carouselController: controller,
                       itemBuilder: (context, index, realIndex) {
                         return Container(
-                          width: 180,
-                          height: 2302,
+                          width: 2100,
+                          height: 310,
                           decoration: BoxDecoration(
                             color: const Color(0xFFF2BED1),
                             borderRadius: BorderRadius.circular(20),
@@ -323,19 +319,7 @@ class _MainPageState extends State<MainPage> {
                       },
                     ),
                     const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.arrow_back),
-                          onPressed: () => controller.previousPage(),
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.arrow_forward),
-                          onPressed: () => controller.nextPage(),
-                        ),
-                      ],
-                    ),
+                    
                   ],
                 ),
               ),
