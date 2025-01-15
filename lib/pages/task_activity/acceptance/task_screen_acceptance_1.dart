@@ -14,35 +14,44 @@ class _TaskScreenAcceptance1State extends State<TaskScreenAcceptance1> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFDCEDF),
-      body: Column(
-        children: [
-          const Text(
-            "\"Упражнение\" - Диалог с зеркалом",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Container(
-            width: 270,
-            height: 170,
-            decoration: const BoxDecoration(
-                color: Color(0xFFFDA1C3),
-                borderRadius: BorderRadius.all(Radius.circular(25))
-            ),
-          ),
-          const Text(
-            "Что нужно делать?",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-          const Column(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const SizedBox(height: 30.0),
+              const Text(
+                "\"Упражнение\" - Диалог с зеркалом",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 18.0),
+              Container(
+                width: double.infinity,
+                height: 170,
+                decoration: const BoxDecoration(
+                  color: Color(0xFFFDA1C3),
+                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              const Center( // Центрируем текст
+                child: Text(
+                  "Что нужно делать?",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              const Text(
                 "1. Найдите уединённое место с зеркалом.",
                 style: TextStyle(
                   color: Colors.white,
@@ -50,7 +59,8 @@ class _TaskScreenAcceptance1State extends State<TaskScreenAcceptance1> {
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              Text(
+              const SizedBox(height: 8.0),
+              const Text(
                 "2. Посмотрите себе в глаза и медленно скажите вслух пять своих качеств, которые вы цените.",
                 style: TextStyle(
                   color: Colors.white,
@@ -58,7 +68,8 @@ class _TaskScreenAcceptance1State extends State<TaskScreenAcceptance1> {
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              Text(
+              const SizedBox(height: 8.0),
+              const Text(
                 "3. Затем произнесите фразу: «Я принимаю себя таким(ой), какой(ая) я есть, со всеми недостатками и достоинствами».",
                 style: TextStyle(
                   color: Colors.white,
@@ -66,56 +77,64 @@ class _TaskScreenAcceptance1State extends State<TaskScreenAcceptance1> {
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              Text(
-                "4. Повторите это несколько раз, внимательно наблюдая за своими эмоциями и реакцией",
+              const SizedBox(height: 8.0),
+              const Text(
+                "4. Повторите это несколько раз, внимательно наблюдая за своими эмоциями и реакцией.",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
                 ),
               ),
-            ],
-          ),
-          Row(
-            children: [
-              Checkbox(
-                  value: isChecked,
-                  activeColor: const Color(0xFFFDA1C3),
-                  onChanged: (newChecked) {
-                    setState(() {
-                      isChecked = newChecked!;
-                    });
-                  },
+              const SizedBox(height: 24.0),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: isChecked,
+                    activeColor: const Color(0xFFFDA1C3),
+                    onChanged: (newChecked) {
+                      setState(() {
+                        isChecked = newChecked!;
+                      });
+                    },
+                  ),
+                  const Expanded(
+                    child: Text(
+                      "Нажимая на кнопку вы подтверждаете\nчто выполнили упражнение блока!",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              const Text(
-                "Нажимая на кнопку вы подтверждаете\n что выполнили упражнение блока!",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
+              const SizedBox(height: 20.0),
+              Center(
+                child: Container(
+                  height: 55,
+                  width: 220,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF2BED1),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "Готово",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
           ),
-          Container(
-            height: 55,
-            width: 220,
-            decoration: BoxDecoration(
-              color: const Color(0xFFF2BED1),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const Center(
-              child: Text(
-                "Готово",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
