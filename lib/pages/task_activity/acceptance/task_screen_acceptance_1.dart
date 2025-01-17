@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TaskScreenAcceptance1 extends StatefulWidget {
-  const TaskScreenAcceptance1({super.key});
+class TaskScreenAcceptance3 extends StatefulWidget {
+  const TaskScreenAcceptance3({super.key});
 
   @override
-  State<TaskScreenAcceptance1> createState() => _TaskScreenAcceptance1State();
+  State<TaskScreenAcceptance3> createState() => _TaskScreenAcceptance3State();
 }
 
-class _TaskScreenAcceptance1State extends State<TaskScreenAcceptance1> {
+class _TaskScreenAcceptance3State extends State<TaskScreenAcceptance3> {
   bool isChecked = false;
 
   @override
@@ -22,7 +22,7 @@ class _TaskScreenAcceptance1State extends State<TaskScreenAcceptance1> {
             children: [
               const SizedBox(height: 30.0),
               const Text(
-                "\"Упражнение\" - Диалог с зеркалом",
+                "Упражнение 1: «Диалог с зеркалом»",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,

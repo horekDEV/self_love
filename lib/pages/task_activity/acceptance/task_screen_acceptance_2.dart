@@ -22,7 +22,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
             children: [
               const SizedBox(height: 30.0),
               const Text(
-                "\"Упражнение\" - Диалог с зеркалом",
+                "Упражнение 2: «Списки непринятия»",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -52,7 +52,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 20.0),
               const Text(
-                "1. Найдите уединённое место с зеркалом.",
+                "1. Возьмите блокнот и ручку. Устройтесь удобно в спокойном месте, где вам никто не помешает, и настройтесь на честный и открытый разговор с собой.",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -61,7 +61,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "2. Посмотрите себе в глаза и медленно скажите вслух пять своих качеств, которые вы цените.",
+                "2. Напишите заголовок: «Качества, которые мне в себе не нравятся» и перечислите все качества, которые вызывают у вас дискомфорт или неприятие. Это могут быть как физические, так и личностные черты (например: «Я слишком медлительный», «Я часто сомневаюсь», «Мне сложно говорить «нет»»).",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -70,7 +70,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "3. Затем произнесите фразу: «Я принимаю себя таким(ой), какой(ая) я есть, со всеми недостатками и достоинствами».",
+                "3. Будьте честны, но не осуждайте себя за то, что пишете.",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -79,7 +79,25 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "4. Повторите это несколько раз, внимательно наблюдая за своими эмоциями и реакцией.",
+                "4. Для каждого пункта в списке найдите альтернативное, нейтральное или даже положительное объяснение этого качества.",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "5. Если сложно найти нейтральную сторону, задайте себе вопрос: «В каких ситуациях это качество помогало мне?»",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "6. В завершении напишите небольшое обращение к себе. Например: «Я признаю, что все мои качества – часть меня. Даже те, которые мне сложно принять, несут в себе ценность. Я готов(а) видеть себя более целостно и с любовью»",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,

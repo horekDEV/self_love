@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:self_love/pages/task_activity/acceptance/task_screen_acceptance_1.dart';
-import 'package:self_love/pages/task_activity/acceptance/task_screen_acceptance_2.dart';
-import 'package:self_love/pages/task_activity/acceptance/task_screen_acceptance_3.dart';
 
 class TaskPage extends StatefulWidget {
   const TaskPage({super.key});

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:self_love/pages/main/main_page.dart';
 import 'package:self_love/pages/main/road_page.dart';

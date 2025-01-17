@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:self_love/pages/profile/profile_page.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});
@@ -28,6 +26,22 @@ class _TestPageState extends State<TestPage> {
     "Я проявляю терпение и доброту к себе в сложных ситуациях.",
     "Я способен(на) прощать себя за прошлые ошибки.",
   ];
+
+  void _finishTest() {
+    Navigator.pushNamed(context, '/test-results', arguments: questionAnswers);
+  }
+
+  void _nextQuestion() {
+    setState(() {
+      questionAnswers.add(sliderValue);
+      if (count == questions.length - 1) {
+        _finishTest();
+      } else {
+        count += 1;
+        sliderValue = 50.0;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,25 +113,7 @@ class _TestPageState extends State<TestPage> {
             ),
             const SizedBox(height: 70),
             InkWell(
-              onTap: () {
-                setState(() {
-                  questionAnswers.add(sliderValue);
-                  if (count == questions.length - 1) {
-                    Fluttertoast.showToast(
-                      msg: "Вы успешно завершили тестирование!",
-                      toastLength: Toast.LENGTH_LONG,
-                      gravity: ToastGravity.BOTTOM,
-                      timeInSecForIosWeb: 1,
-                      backgroundColor: Colors.pinkAccent,
-                      textColor: Colors.white,
-                      fontSize: 14.0,
-                    );
-                    Navigator.pop(context);
-                  } else {
-                    count += 1;
-                  }
-                });
-              },
+              onTap: _nextQuestion,
               child: Container(
                 height: 55,
                 width: 220,

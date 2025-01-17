@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TaskScreenAcceptance3 extends StatefulWidget {
-  const TaskScreenAcceptance3({super.key});
+class TaskScreenAcceptance1 extends StatefulWidget {
+  const TaskScreenAcceptance1({super.key});
 
   @override
-  State<TaskScreenAcceptance3> createState() => _TaskScreenAcceptance3State();
+  State<TaskScreenAcceptance1> createState() => _TaskScreenAcceptance1State();
 }
 
-class _TaskScreenAcceptance3State extends State<TaskScreenAcceptance3> {
+class _TaskScreenAcceptance1State extends State<TaskScreenAcceptance1> {
   bool isChecked = false;
 
   @override
@@ -22,7 +22,7 @@ class _TaskScreenAcceptance3State extends State<TaskScreenAcceptance3> {
             children: [
               const SizedBox(height: 30.0),
               const Text(
-                "\"Упражнение\" - Диалог с зеркалом",
+                "Упражнение 3: «Коллаж принятия себя»",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -52,7 +52,7 @@ class _TaskScreenAcceptance3State extends State<TaskScreenAcceptance3> {
               ),
               const SizedBox(height: 20.0),
               const Text(
-                "1. Найдите уединённое место с зеркалом.",
+                "1. Возьмите ватман, журналы, фломастеры, клей. Приготовьтесь искать образы, которые вызывают разные эмоции: восхищение, принятие, даже отторжение.",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -61,7 +61,7 @@ class _TaskScreenAcceptance3State extends State<TaskScreenAcceptance3> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "2. Посмотрите себе в глаза и медленно скажите вслух пять своих качеств, которые вы цените.",
+                "2. Ответьте на вопросы:\n Какие качества я в себе люблю? Что мне сложно в себе принять? Как я могу интегрировать все свои стороны в одно целое?",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -70,7 +70,7 @@ class _TaskScreenAcceptance3State extends State<TaskScreenAcceptance3> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "3. Затем произнесите фразу: «Я принимаю себя таким(ой), какой(ая) я есть, со всеми недостатками и достоинствами».",
+                "3. Создайте коллаж: Разделите лист на две зоны: «Свет» и «Тень» (или любые другие символичные названия). На одной стороне поместите образы своих сильных сторон. На другой стороне — образы тех сторон, которые вы отвергаете. В центре нарисуйте или разместите символ, который объединяет обе части (например, мост, сердце, дерево).",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -79,7 +79,10 @@ class _TaskScreenAcceptance3State extends State<TaskScreenAcceptance3> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "4. Повторите это несколько раз, внимательно наблюдая за своими эмоциями и реакцией.",
+                '''4. Подпишите коллаж фразами:
+«Я принимаю себя полностью».
+«Мои сильные и слабые стороны делают меня уникальным/уникальной».
+«Я не обязан/обязана быть идеальным/идеальной».''',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,

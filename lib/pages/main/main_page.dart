@@ -13,7 +13,6 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   final CarouselController _controller = CarouselController();
   final CarouselSliderController controller = CarouselSliderController();
-  int _currentIndex = 0;
   final List<String> motivationalPhrases = [
     "Научись любить себя, прежде чем кого-то полюбить",
     "Ты прекрасен таким, какой ты есть",
@@ -262,9 +261,6 @@ class _MainPageState extends State<MainPage> {
                         aspectRatio: 12/16,
                         viewportFraction: 0.45,
                         onPageChanged: (index, reason) {
-                          setState(() {
-                            _currentIndex = index;
-                          });
                         },
                       ),
                       carouselController: controller,
