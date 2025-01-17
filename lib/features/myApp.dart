@@ -9,6 +9,9 @@ import 'package:self_love/pages/task_activity/acceptance/task_screen_acceptance_
 import 'package:self_love/pages/task_activity/acceptance/task_screen_acceptance_3.dart';
 import 'package:self_love/pages/task_activity/task_page.dart';
 import 'package:self_love/pages/task_activity/test_page.dart';
+import 'package:self_love/pages/task_activity/personal_boundaries/task_screen_personal_1.dart';
+import 'package:self_love/pages/task_activity/personal_boundaries/task_screen_personal_2.dart';
+import 'package:self_love/pages/task_activity/personal_boundaries/task_screen_personal_3.dart';
 
 import '../pages/home_page.dart';
 import '../pages/registration/login_page.dart';
@@ -36,6 +39,9 @@ class MyApp extends StatelessWidget {
         '/task_acceptance_1': (BuildContext context) => const TaskScreenAcceptance1(),
         '/task_acceptance_2': (BuildContext context) => const TaskScreenAcceptance2(),
         '/task_acceptance_3': (BuildContext context) => const TaskScreenAcceptance3(),
+        '/task_personal_1': (BuildContext context) => const TaskScreenPersonal1(),
+        '/task_personal_2': (BuildContext context) => const TaskScreenPersonal2(),
+        '/task_personal_3': (BuildContext context) => const TaskScreenPersonal3(),
       },
     );
   }
