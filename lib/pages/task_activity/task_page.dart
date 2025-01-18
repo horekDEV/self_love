@@ -59,28 +59,28 @@ class _TaskPageState extends State<TaskPage> {
               GestureDetector(
                 child: Container(
                   width: 260, height: 170,
-                  decoration: const BoxDecoration(color: Colors.transparent)
+                  decoration: const BoxDecoration(color: Color.fromARGB(0, 195, 198, 6))
                 ),
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TaskScreen3()))
               ),
                GestureDetector(
                 child: Container(
                   width: 90, height: 110,
-                  decoration: const BoxDecoration(color: Colors.transparent)
+                  decoration: const BoxDecoration(color: Color.fromARGB(0, 186, 54, 54))
                 ),
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TaskScreen2()))
               ),
               GestureDetector(
                 child: Container(
                   width: 180, height: 150,
-                  decoration: const BoxDecoration(color: Colors.transparent)
+                  decoration: const BoxDecoration(color: Color.fromARGB(0, 38, 93, 195))
                 ),
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TaskScreen1()))
               )
             ]
           )),
           Padding(
-            padding: EdgeInsets.only(right: MediaQuery.of(context).size.width / 2 + 100),
+            padding: EdgeInsets.only(right: MediaQuery.of(context).size.width / 2 + 70),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
