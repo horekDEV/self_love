@@ -40,7 +40,6 @@ class _TaskScreenCare1State extends State<TaskScreenCare1> {
               ),
               const SizedBox(height: 16.0),
               const Center(
-                // Центрируем текст
                 child: Text(
                   "Что нужно делать?",
                   textAlign: TextAlign.center,
