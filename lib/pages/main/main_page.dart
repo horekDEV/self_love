@@ -254,7 +254,7 @@ class _MainPageState extends State<MainPage> {
                     CarouselSlider.builder(
                       itemCount: carouselImages.length,
                       options: CarouselOptions(
-                        height: 310,
+                        height: 250,
                         enlargeCenterPage: true,
                         enableInfiniteScroll: true,
                         autoPlay: false,
@@ -276,7 +276,7 @@ class _MainPageState extends State<MainPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               SizedBox(
-                                height: 150,
+                                height: 120,
                                 child: Image.asset(
                                   carouselImages[index],
                                   fit: BoxFit.cover

@@ -56,28 +56,28 @@ class _TaskPageState extends State<TaskPage> {
               GestureDetector(
                 child: Container(
                   width: 260, height: 170,
-                  decoration: const BoxDecoration(color: Colors.transparent)
+                  decoration: const BoxDecoration(color: Color.fromARGB(0, 195, 198, 6))
                 ),
                 onTap: () => Navigator.pushNamed(context, "/task_acceptance_1")
               ),
                GestureDetector(
                 child: Container(
                   width: 90, height: 110,
-                  decoration: const BoxDecoration(color: Colors.transparent)
+                  decoration: const BoxDecoration(color: Color.fromARGB(0, 186, 54, 54))
                 ),
                 onTap: () => Navigator.pushNamed(context, "/task_acceptance_2")
               ),
               GestureDetector(
                 child: Container(
                   width: 180, height: 150,
-                  decoration: const BoxDecoration(color: Colors.transparent)
+                  decoration: const BoxDecoration(color: Color.fromARGB(0, 38, 93, 195))
                 ),
                 onTap: () => Navigator.pushNamed(context, "/task_acceptance_3")
               )
             ]
           )),
           Padding(
-            padding: EdgeInsets.only(right: MediaQuery.of(context).size.width / 2 + 100),
+            padding: EdgeInsets.only(right: MediaQuery.of(context).size.width / 2 + 70),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
