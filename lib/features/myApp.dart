@@ -7,6 +7,12 @@ import 'package:self_love/pages/registration/send_code_page.dart';
 import 'package:self_love/pages/task_activity/acceptance/task_screen_acceptance_1.dart';
 import 'package:self_love/pages/task_activity/acceptance/task_screen_acceptance_2.dart';
 import 'package:self_love/pages/task_activity/acceptance/task_screen_acceptance_3.dart';
+import 'package:self_love/pages/task_activity/forgiveness/task_screen_forgiveness_1.dart';
+import 'package:self_love/pages/task_activity/forgiveness/task_screen_forgiveness_2.dart';
+import 'package:self_love/pages/task_activity/forgiveness/task_screen_forgiveness_3.dart';
+import 'package:self_love/pages/task_activity/inner_child/task_screen_child_1.dart';
+import 'package:self_love/pages/task_activity/inner_child/task_screen_child_2.dart';
+import 'package:self_love/pages/task_activity/inner_child/task_screen_child_3.dart';
 import 'package:self_love/pages/task_activity/task_page.dart';
 import 'package:self_love/pages/task_activity/test_page.dart';
 import 'package:self_love/pages/task_activity/personal_boundaries/task_screen_personal_1.dart';
@@ -38,7 +44,7 @@ class MyApp extends StatelessWidget {
         '/main': (BuildContext context) => const MainPage(),
         '/test': (BuildContext context) => const TestPage(),
         '/road': (BuildContext context) => const RoadPage(),
-        '/task': (BuildContext context) => const TaskPage(),
+        '/task': (BuildContext context) => const TaskPage(blockNum: 0),
         '/task_acceptance_1': (BuildContext context) =>
             const TaskScreenAcceptance1(),
         '/task_acceptance_2': (BuildContext context) =>
@@ -54,6 +60,12 @@ class MyApp extends StatelessWidget {
         '/task_care_1': (BuildContext context) => const TaskScreenCare1(),
         '/task_care_2': (BuildContext context) => const TaskScreenCare2(),
         '/task_care_3': (BuildContext context) => const TaskScreenCare3(),
+        '/task_child_1': (BuildContext context) => const TaskScreenChild1(),
+        '/task_child_2': (BuildContext context) => const TaskScreenChild2(),
+        '/task_child_3': (BuildContext context) => const TaskScreenChild3(),
+        '/task_forgiveness_1': (BuildContext context) => const TaskScreenForgiveness1(),
+        '/task_forgiveness_2': (BuildContext context) => const TaskScreenForgiveness2(),
+        '/task_forgiveness_3': (BuildContext context) => const TaskScreenForgiveness3(),
       },
     );
   }

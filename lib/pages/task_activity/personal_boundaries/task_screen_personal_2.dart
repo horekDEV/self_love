@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:self_love/pages/task_activity/task_page.dart';
 
 class TaskScreenPersonal2 extends StatefulWidget {
   const TaskScreenPersonal2({super.key});
@@ -140,24 +141,32 @@ class _TaskScreenPersonal2State extends State<TaskScreenPersonal2> {
               ),
               const SizedBox(height: 20.0),
               Center(
-                child: Container(
-                  height: 55,
-                  width: 220,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFF2BED1),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "Готово",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                child: GestureDetector(
+                  child: Container(
+                    height: 55,
+                    width: 220,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF2BED1),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Готово",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
-                ),
+                  onTap: () {
+                    if (isChecked) {
+                      taskStates[1][1] = true;
+                      Navigator.of(context).pop();
+                    }
+                  }
+                )
               ),
             ],
           ),

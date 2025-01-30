@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:self_love/pages/task_activity/task_page.dart';
 
-class TaskScreenAcceptance2 extends StatefulWidget {
-  const TaskScreenAcceptance2({super.key});
+class TaskScreenChild1 extends StatefulWidget {
+  const TaskScreenChild1({super.key});
 
   @override
-  State<TaskScreenAcceptance2> createState() => _TaskScreenAcceptance2State();
+  State<TaskScreenChild1> createState() => _TaskScreenChild1State();
 }
 
-class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
+class _TaskScreenChild1State extends State<TaskScreenChild1> {
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
-    bool isChecked = false;
-
     return Scaffold(
       backgroundColor: const Color(0xFFFDCEDF),
       body: SingleChildScrollView(
@@ -23,7 +22,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
             children: [
               const SizedBox(height: 30.0),
               const Text(
-                "Упражнение 2: «Списки непринятия»",
+                "Упражнение 1: «Встреча с внутренним ребенком»",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -53,7 +52,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 20.0),
               const Text(
-                "1. Возьмите блокнот и ручку. Устройтесь удобно в спокойном месте, где вам никто не помешает, и настройтесь на честный и открытый разговор с собой.",
+                "1. Найдите спокойное место. Сядьте удобно, закройте глаза и сделайте несколько глубоких вдохов и выдохов.",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -62,7 +61,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "2. Напишите заголовок: «Качества, которые мне в себе не нравятся» и перечислите все качества, которые вызывают у вас дискомфорт или неприятие. Это могут быть как физические, так и личностные черты (например: «Я слишком медлительный», «Я часто сомневаюсь», «Мне сложно говорить «нет»»).",
+                "2. Представьте, что вы находитесь в безопасном, уютном месте (например, в тёплом доме или волшебном саду).",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -71,7 +70,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "3. Будьте честны, но не осуждайте себя за то, что пишете.",
+                "3. Представьте, что к вам подходит маленький ребенок — это вы в возрасте 5–7 лет. Обратите внимание, как он выглядит: как он одет, какое у него выражение лица, что он чувствует.",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -80,7 +79,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "4. Для каждого пункта в списке найдите альтернативное, нейтральное или даже положительное объяснение этого качества.",
+                "4. Мягко заговорите с ним, например: ",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -89,7 +88,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "5. Если сложно найти нейтральную сторону, задайте себе вопрос: «В каких ситуациях это качество помогало мне?»",
+                "          «Как ты себя чувствуешь?»",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -98,7 +97,34 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "6. В завершении напишите небольшое обращение к себе. Например:«Я признаю, что все мои качества – часть меня. Даже те, которые мне сложно принять, несут в себе ценность. Я готов(а) видеть себя более целостно и с любовью»",
+                "          «Чего тебе не хватает?»",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "          «Что я могу для тебя сделать сейчас?»",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "5. Обнимите внутреннего ребенка (в вашем воображении), скажите ему тёплые слова, дайте обещание, которое сможете выполнить (например: «Я всегда буду тебя слушать»).",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "6. Попрощайтесь с ребенком, пообещав вернуться. Откройте глаза и запишите свои ощущения.",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -132,32 +158,24 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
               ),
               const SizedBox(height: 20.0),
               Center(
-                child: GestureDetector(
-                  child: Container(
-                    height: 55,
-                    width: 220,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF2BED1),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "Готово",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                child: Container(
+                  height: 55,
+                  width: 220,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF2BED1),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "Готово",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  onTap: () {
-                    if (isChecked) {
-                      taskStates[0][1] = true;
-                      Navigator.of(context).pop();
-                    }
-                  }
-                )
+                ),
               ),
             ],
           ),

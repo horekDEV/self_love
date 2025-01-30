@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 
 class TaskPage extends StatefulWidget {
-  const TaskPage({super.key});
+  const TaskPage({super.key, required this.blockNum});
+
+  final int blockNum;
 
   @override
   State<TaskPage> createState() => _TaskPageState();
 }
 
 class _TaskPageState extends State<TaskPage> {
+  List<List<String>> routeNames = [
+    ["/task_acceptance_3", "/task_acceptance_2", "/task_acceptance_1"],
+    ['/task_personal_1', '/task_personal_2', '/task_personal_3'],
+    ['/task_care_1', '/task_care_2', '/task_care_3'],
+    ['/task_child_1', '/task_child_2', '/task_child_3'],
+    ['/task_forgiveness_1', '/task_forgiveness_2', '/task_forgiveness_3']
+  ];
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +59,6 @@ class _TaskPageState extends State<TaskPage> {
               ),
             ]
           ),
-          Center(child: SizedBox(width: 300, child: Image.asset('assets/taskIcons/tree.png'))),
           Center(child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -58,21 +67,21 @@ class _TaskPageState extends State<TaskPage> {
                   width: 260, height: 170,
                   decoration: const BoxDecoration(color: Color.fromARGB(0, 195, 198, 6))
                 ),
-                onTap: () => Navigator.pushNamed(context, "/task_acceptance_1")
+                onTap: () {if (taskStates[widget.blockNum][2] == false) {Navigator.pushNamed(context, routeNames[widget.blockNum][2]);}}
               ),
                GestureDetector(
                 child: Container(
                   width: 90, height: 110,
                   decoration: const BoxDecoration(color: Color.fromARGB(0, 186, 54, 54))
                 ),
-                onTap: () => Navigator.pushNamed(context, "/task_acceptance_2")
+                onTap: () {if (taskStates[widget.blockNum][1] == false) {Navigator.pushNamed(context, routeNames[widget.blockNum][1]);}}
               ),
               GestureDetector(
                 child: Container(
                   width: 180, height: 150,
                   decoration: const BoxDecoration(color: Color.fromARGB(0, 38, 93, 195))
                 ),
-                onTap: () => Navigator.pushNamed(context, "/task_acceptance_3")
+                onTap: () {if (taskStates[widget.blockNum][0] == false) {Navigator.pushNamed(context, routeNames[widget.blockNum][0]);}}
               )
             ]
           )),
@@ -86,9 +95,49 @@ class _TaskPageState extends State<TaskPage> {
                 SizedBox(height: 360, child: Image.asset('assets/taskIcons/tasks_sign.png'))
               ]
             )
-          )
+          ),
+          Center(child:  taskStates[widget.blockNum][0] ? Padding(
+            padding: const EdgeInsets.only(top: 285),
+            child: SizedBox(width: 170, child: Image.asset('assets/taskIcons/RootsColored.png'))
+          ) : GestureDetector(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 275),
+              child: SizedBox(width: 170, child: Image.asset('assets/taskIcons/Roots.png'))
+            ),
+            onTap: () => Navigator.pushNamed(context, routeNames[widget.blockNum][0]),
+          )),
+
+          Center(child:  taskStates[widget.blockNum][1] ? Padding(
+            padding: const EdgeInsets.only(bottom: 120),
+            child: SizedBox(width: 300, child: Image.asset('assets/taskIcons/TreeColored1.png'))
+          ) : GestureDetector(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 125),
+              child: SizedBox(width: 300, child: Image.asset('assets/taskIcons/Tree1.png'))
+            ),
+            onTap: () => Navigator.pushNamed(context, routeNames[widget.blockNum][1]),
+          )),
+
+          Center(child:  taskStates[widget.blockNum][2] ? Padding(
+            padding: const EdgeInsets.only(bottom: 243),
+            child: SizedBox(width: 300, child: Image.asset('assets/taskIcons/TreeColored2.png'))
+          ) : GestureDetector(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 237),
+              child: SizedBox(width: 300, child: Image.asset('assets/taskIcons/Tree2.png'))
+            ),
+            onTap: () => Navigator.pushNamed(context, routeNames[widget.blockNum][2]),
+          )),
         ]
       )
     );
   }
 }
+
+List<List<bool>> taskStates = [
+  [false, false, false],
+  [false, false, false],
+  [false, false, false],
+  [false, false, false],
+  [false, false, false]
+];

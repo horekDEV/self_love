@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:self_love/pages/task_activity/task_page.dart';
 
-class TaskScreenPersonal1 extends StatefulWidget {
-  const TaskScreenPersonal1({super.key});
+class TaskScreenChild3 extends StatefulWidget {
+  const TaskScreenChild3({super.key});
 
   @override
-  State<TaskScreenPersonal1> createState() => _TaskScreenPersonal1State();
+  State<TaskScreenChild3> createState() => _TaskScreenChild3State();
 }
 
-class _TaskScreenPersonal1State extends State<TaskScreenPersonal1> {
+class _TaskScreenChild3State extends State<TaskScreenChild3> {
   bool isChecked = false;
 
   @override
@@ -23,7 +22,7 @@ class _TaskScreenPersonal1State extends State<TaskScreenPersonal1> {
             children: [
               const SizedBox(height: 30.0),
               const Text(
-                "Упражнение 1: «Карта границ»",
+                "Упражнение 3: «Разрешение на радость»",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -53,7 +52,7 @@ class _TaskScreenPersonal1State extends State<TaskScreenPersonal1> {
               ),
               const SizedBox(height: 20.0),
               const Text(
-                "1. Нарисуйте круг и разделите его на сегменты: «Работа», «Семья», «Друзья», «Личное время».",
+                "1. Вспомните, что приносило вам радость в детстве (например, рисование, прыжки на батуте, собирание конструкторов).",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -62,7 +61,7 @@ class _TaskScreenPersonal1State extends State<TaskScreenPersonal1> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "2. В каждом сегменте опишите, какие границы вам важно установить (например, «Я не отвечаю на рабочие сообщения после 19:00»).",
+                "2. Выберите одно из этих занятий и найдите способ повторить его сегодня.",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -71,7 +70,16 @@ class _TaskScreenPersonal1State extends State<TaskScreenPersonal1> {
               ),
               const SizedBox(height: 8.0),
               const Text(
-                "3. Проанализируйте, какие границы вам удаётся поддерживать, а какие — нарушаются и почему?",
+                "3. Позвольте себе полностью погрузиться в процесс, не оценивая себя.",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "4. После завершения упражнения напишите себе записку, к которой сможете возвращаться по мере необходимости: «Я разрешаю себе радоваться. Радость — это естественная часть меня».",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -105,32 +113,24 @@ class _TaskScreenPersonal1State extends State<TaskScreenPersonal1> {
               ),
               const SizedBox(height: 20.0),
               Center(
-                child: GestureDetector(
-                  child: Container(
-                    height: 55,
-                    width: 220,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF2BED1),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "Готово",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                child: Container(
+                  height: 55,
+                  width: 220,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF2BED1),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "Готово",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  onTap: () {
-                    if (isChecked) {
-                      taskStates[1][0] = true;
-                      Navigator.of(context).pop();
-                    }
-                  }
-                )
+                ),
               ),
             ],
           ),
