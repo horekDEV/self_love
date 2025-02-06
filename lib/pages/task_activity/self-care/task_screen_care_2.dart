@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:self_love/pages/task_activity/task_page.dart';
 
 class TaskScreenCare2 extends StatefulWidget {
   const TaskScreenCare2({super.key});
@@ -140,24 +141,33 @@ class _TaskScreenCare2State extends State<TaskScreenCare2> {
               ),
               const SizedBox(height: 20.0),
               Center(
-                child: Container(
-                  height: 55,
-                  width: 220,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFF2BED1),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "Готово",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                child: GestureDetector(
+                  child: Container(
+                    height: 55,
+                    width: 220,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF2BED1),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Готово",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
-                ),
+                  onTap: () {
+                    if (isChecked) {
+                      taskStates[2][1] = true;
+                      if (callback != null) {callback!();}
+                      Navigator.of(context).pop();
+                    }
+                  }
+                )
               ),
             ],
           ),

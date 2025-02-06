@@ -154,6 +154,7 @@ class _TaskScreenAcceptance2State extends State<TaskScreenAcceptance2> {
                   onTap: () {
                     if (isChecked) {
                       taskStates[0][1] = true;
+                      if (callback != null) {callback!();}
                       Navigator.of(context).pop();
                     }
                   }

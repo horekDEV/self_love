@@ -20,6 +20,7 @@ class _TaskPageState extends State<TaskPage> {
   
   @override
   Widget build(BuildContext context) {
+    callback = () => setState(() {});
     return Scaffold(
       backgroundColor: const Color(0xFFFDCEDF),
       appBar: AppBar(
@@ -141,3 +142,5 @@ List<List<bool>> taskStates = [
   [false, false, false],
   [false, false, false]
 ];
+
+void Function()? callback;

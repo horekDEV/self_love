@@ -127,6 +127,7 @@ class _TaskScreenPersonal1State extends State<TaskScreenPersonal1> {
                   onTap: () {
                     if (isChecked) {
                       taskStates[1][0] = true;
+                      if (callback != null) {callback!();}
                       Navigator.of(context).pop();
                     }
                   }
