@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,6 +10,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String email = '';
+  String password = '';
+  int selectedMood = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +20,9 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              colors: [
-                Color(0xFFF3C8D8),
-                Color(0xFFF8E8EE)
-              ],
+              colors: [Color(0xFFF3C8D8), Color(0xFFF8E8EE)],
               begin: Alignment.topLeft,
-              end: Alignment.bottomRight
-          ),
+              end: Alignment.bottomRight),
         ),
         child: Center(
           child: Column(
@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderSide: BorderSide(color: Colors.white, width: 3.0),
                     ),
                     label: Text(
-                      "email",
+                      "Email",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -70,6 +70,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     contentPadding: EdgeInsets.only(bottom: -6),
                   ),
+                  onChanged: (value) {
+                    email = value;
+                  },
                 ),
               ),
               const SizedBox(height: 48),
@@ -78,6 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextFormField(
                   style: const TextStyle(color: Colors.white),
                   cursorColor: Colors.white,
+                  obscureText: true,
                   decoration: const InputDecoration(
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.white, width: 3.0),
@@ -89,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderSide: BorderSide(color: Colors.white, width: 3.0),
                     ),
                     label: Text(
-                      "password",
+                      "Password",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -97,6 +101,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     contentPadding: EdgeInsets.only(bottom: -6),
                   ),
+                  onChanged: (value) {
+                    password = value;
+                  },
                 ),
               ),
               const SizedBox(height: 58),
@@ -134,39 +141,86 @@ class _LoginPageState extends State<LoginPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              //TODO(отображение картинок)
-                              SvgPicture.asset(
-                                "assets/registrationIcons/apple.svg",
-                                width: 30,
-                                height: 30,
+                              GestureDetector(
+                                child: Image.asset(
+                                  "assets/alertIcons/sad.png",
+                                  width: selectedMood == 1 ? 35 : 30,
+                                  height: selectedMood == 1 ? 35 : 30,
+                                ),
+                                onTap: () => setState(() {
+                                  selectedMood = selectedMood == 1 ? 0 : 1;
+                                }),
                               ),
-                              SvgPicture.asset(
-                                "assets/registrationIcons/apple.svg",
-                                width: 30,
-                                height: 30,
+                              GestureDetector(
+                                child: Image.asset(
+                                  "assets/alertIcons/notsad.png",
+                                  width: selectedMood == 2 ? 35 : 30,
+                                  height: selectedMood == 2 ? 35 : 30,
+                                ),
+                                onTap: () => setState(() {
+                                  selectedMood = selectedMood == 2 ? 0 : 2;
+                                }),
                               ),
-                              SvgPicture.asset(
-                                "assets/registrationIcons/apple.svg",
-                                width: 30,
-                                height: 30,
+                              GestureDetector(
+                                child: Image.asset(
+                                  "assets/alertIcons/idk.png",
+                                  width: selectedMood == 3 ? 35 : 30,
+                                  height: selectedMood == 3 ? 35 : 30,
+                                ),
+                                onTap: () => setState(() {
+                                  selectedMood = selectedMood == 3 ? 0 : 3;
+                                }),
                               ),
-                              SvgPicture.asset(
-                                "assets/registrationIcons/apple.svg",
-                                width: 30,
-                                height: 30,
+                              GestureDetector(
+                                child: Image.asset(
+                                  "assets/alertIcons/verygood.png",
+                                  width: selectedMood == 4 ? 35 : 30,
+                                  height: selectedMood == 4 ? 35 : 30,
+                                ),
+                                onTap: () => setState(() {
+                                  selectedMood = selectedMood == 4 ? 0 : 4;
+                                }),
                               ),
-                              SvgPicture.asset(
-                                "assets/registrationIcons/apple.svg",
-                                width: 30,
-                                height: 30,
+                              GestureDetector(
+                                child: Image.asset(
+                                  "assets/alertIcons/happy.png",
+                                  width: selectedMood == 5 ? 35 : 30,
+                                  height: selectedMood == 5 ? 35 : 30,
+                                ),
+                                onTap: () => setState(() {
+                                  selectedMood = selectedMood == 5 ? 0 : 5;
+                                }),
                               ),
                             ],
                           ),
                           const SizedBox(height: 30),
                           InkWell(
                             onTap: () {
-                              // TODO(проверка на то что самочувствие было выбрано)
-                              Navigator.pushNamed(context, '/code');
+                              if (email.isEmpty ||
+                                  !RegExp(r'^[^@]+@[^@]+\.[^@]+')
+                                      .hasMatch(email)) {
+                                Fluttertoast.showToast(
+                                    msg: "Вы ввели некорректный email",
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.BOTTOM,
+                                    timeInSecForIosWeb: 1,
+                                    textColor: Colors.black,
+                                    backgroundColor: Colors.white,
+                                    fontSize: 16.0);
+                              } else if (password.length < 8 ||
+                                  password.contains(' ')) {
+                                Fluttertoast.showToast(
+                                    msg:
+                                        "Ваш пароль должен быть длинной не меньше 8 символов и не содержать пробелов",
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.BOTTOM,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.white,
+                                    textColor: Colors.black,
+                                    fontSize: 16.0);
+                              } else {
+                                Navigator.pushNamed(context, '/code');
+                              }
                             },
                             child: Container(
                               height: 55,
@@ -191,7 +245,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   );
-                  showDialog(context: context,
+                  showDialog(
+                      context: context,
                       builder: (BuildContext context) => errorDialog);
                 },
                 child: Container(
@@ -226,7 +281,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () => Navigator.pushNamed(context, '/register'),
+                    onTap: () => {
+                      Navigator.pop(context),
+                      Navigator.pushNamed(context, '/register')
+                    },
                     child: const Text(
                       " зарегистрируйтесь",
                       style: TextStyle(

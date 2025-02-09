@@ -10,20 +10,20 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  String name = '';
   int selectedMood = 0;
+  String email = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              colors: [
-                Color(0xFFF3C8D8),
-                Color(0xFFF8E8EE)
-              ],
+              colors: [Color(0xFFF3C8D8), Color(0xFFF8E8EE)],
               begin: Alignment.topLeft,
-              end: Alignment.bottomRight
-          ),
+              end: Alignment.bottomRight),
         ),
         child: Center(
           child: Column(
@@ -58,6 +58,9 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(
                 width: 300,
                 child: TextFormField(
+                  onChanged: (value) {
+                    name = value;
+                  },
                   style: const TextStyle(color: Colors.white),
                   cursorColor: Colors.white,
                   decoration: const InputDecoration(
@@ -71,7 +74,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       borderSide: BorderSide(color: Colors.white, width: 3.0),
                     ),
                     label: Text(
-                      "name",
+                      "Name",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -85,6 +88,9 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(
                 width: 300,
                 child: TextFormField(
+                  onChanged: (value) {
+                    email = value;
+                  },
                   style: const TextStyle(color: Colors.white),
                   cursorColor: Colors.white,
                   decoration: const InputDecoration(
@@ -98,7 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       borderSide: BorderSide(color: Colors.white, width: 3.0),
                     ),
                     label: Text(
-                      "email",
+                      "Email",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -112,8 +118,12 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(
                 width: 300,
                 child: TextFormField(
+                  onChanged: (value) {
+                    password = value;
+                  },
                   style: const TextStyle(color: Colors.white),
                   cursorColor: Colors.white,
+                  obscureText: true,
                   decoration: const InputDecoration(
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.white, width: 3.0),
@@ -125,7 +135,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       borderSide: BorderSide(color: Colors.white, width: 3.0),
                     ),
                     label: Text(
-                      "password",
+                      "Password",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -138,133 +148,39 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 58),
               InkWell(
                 onTap: () {
-                  final errorDialog = StatefulBuilder(builder: (context, setState) => Dialog(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0),
-                    ),
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFEEB8CC),
-                        borderRadius: BorderRadius.all(Radius.circular(25)),
-                      ),
-                      height: 370.0,
-                      width: 310.0,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20.0),
-                            child: Text(
-                              "Какие чувства вы сейчас испытываете?",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              GestureDetector(
-                                child: Image.asset(
-                                  "assets/alertIcons/sad.png",
-                                  width: selectedMood == 1 ? 35 : 30,
-                                  height: selectedMood == 1 ? 35 : 30,
-                                ),
-                                onTap: () => setState(() {selectedMood == 1 ? selectedMood = 0 : selectedMood = 1;})
-                              ),
-                              GestureDetector(
-                                child: Image.asset(
-                                  "assets/alertIcons/notsad.png",
-                                  width: selectedMood == 2 ? 35 : 30,
-                                  height: selectedMood == 2 ? 35 : 30,
-                                ),
-                                onTap: () => setState(() {selectedMood == 2 ? selectedMood = 0 : selectedMood = 2;})
-                              ),
-                              GestureDetector(
-                                child: Image.asset(
-                                  "assets/alertIcons/idk.png",
-                                  width: selectedMood == 3 ? 35 : 30,
-                                  height: selectedMood == 3 ? 35 : 30,
-                                ),
-                                onTap: () => setState(() {selectedMood == 3 ? selectedMood = 0 : selectedMood = 3;})
-                              ),
-                              GestureDetector(
-                                child: Image.asset(
-                                  "assets/alertIcons/verygood.png",
-                                  width: selectedMood == 4 ? 35 : 30,
-                                  height: selectedMood == 4 ? 35 : 30,
-                                ),
-                                onTap: () => setState(() {selectedMood == 4 ? selectedMood = 0 : selectedMood = 4;})
-                              ),
-                              GestureDetector(
-                                child: Image.asset(
-                                  "assets/alertIcons/happy.png",
-                                  width: selectedMood == 5 ? 35 : 30,
-                                  height: selectedMood == 5 ? 35 : 30,
-                                ),
-                                onTap: () => setState(() {selectedMood == 5 ? selectedMood = 0 : selectedMood = 5;})
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 30),
-                          InkWell(
-                            onTap: () {
-                              if (selectedMood != 0) {
-                                Navigator.pushNamed(context, '/code');
-                              } else {
-                                Fluttertoast.showToast(
-                                  msg: "Пожалуйста выберете ваши чувства",
-                                  toastLength: Toast.LENGTH_LONG,
-                                  gravity: ToastGravity.BOTTOM,
-                                  timeInSecForIosWeb: 1,
-                                  backgroundColor: Colors.pinkAccent,
-                                  textColor: Colors.white,
-                                  fontSize: 14.0,
-                                );
-                              }
-                            },
-                            child: Container(
-                              height: 55,
-                              width: 220,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFFCC9DC),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  "Продолжить",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ));
-                  showDialog(context: context,
-                      builder: (BuildContext context) => errorDialog);
+                  if (email.isEmpty ||
+                      !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(email)) {
+                    Fluttertoast.showToast(
+                      msg: "Вы ввели некорректный email",
+                      toastLength: Toast.LENGTH_SHORT,
+                      backgroundColor: Colors.white,
+                      textColor: Colors.black,
+                      gravity: ToastGravity.BOTTOM,
+                    );
+                  } else if (password.length < 8 || password.contains(' ')) {
+                    Fluttertoast.showToast(
+                      msg:
+                          "Ваш пароль должен быть длинной не меньше 8 символов и не содержать пробелов",
+                      toastLength: Toast.LENGTH_SHORT,
+                      backgroundColor: Colors.white,
+                      textColor: Colors.black,
+                      gravity: ToastGravity.BOTTOM,
+                    );
+                  } else {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/main', arguments: name);
+                  }
                 },
                 child: Container(
                   height: 55,
                   width: 220,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF2BED1),
+                    color: const Color(0xFFFCC9DC),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: const Center(
                     child: Text(
-                      "Зарегистрироваться",
+                      "Продолжить",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -287,7 +203,10 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () => Navigator.pushNamed(context, '/login'),
+                    onTap: () => {
+                      Navigator.pop(context),
+                      Navigator.pushNamed(context, '/login')
+                    },
                     child: const Text(
                       " аккаунт",
                       style: TextStyle(

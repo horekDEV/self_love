@@ -33,7 +33,7 @@ class _MainPageState extends State<MainPage> {
     "Дневник мыслей"
   ];
 
-  String get randomPhrase => (motivationalPhrases..shuffle()).first; 
+  String get randomPhrase => (motivationalPhrases..shuffle()).first;
 
   void nextPage() {
     _controller.nextPage(
@@ -51,6 +51,8 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    final String name = ModalRoute.of(context)!.settings.arguments as String;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -73,11 +75,11 @@ class _MainPageState extends State<MainPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 28),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 28),
                       child: Text(
-                        "Приветствуем,\nName!",
-                        style: TextStyle(
+                        "Приветствуем,\n$name!",
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -112,7 +114,7 @@ class _MainPageState extends State<MainPage> {
                       style: TextStyle(
                         fontSize: phraseSizes[phraseNum],
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFFFDA1C3), 
+                        color: Color(0xFFFDA1C3),
                       ),
                     ),
                   ],
@@ -258,10 +260,9 @@ class _MainPageState extends State<MainPage> {
                         enlargeCenterPage: true,
                         enableInfiniteScroll: true,
                         autoPlay: false,
-                        aspectRatio: 12/16,
+                        aspectRatio: 12 / 16,
                         viewportFraction: 0.45,
-                        onPageChanged: (index, reason) {
-                        },
+                        onPageChanged: (index, reason) {},
                       ),
                       carouselController: controller,
                       itemBuilder: (context, index, realIndex) {
@@ -277,10 +278,8 @@ class _MainPageState extends State<MainPage> {
                             children: [
                               SizedBox(
                                 height: 120,
-                                child: Image.asset(
-                                  carouselImages[index],
-                                  fit: BoxFit.cover
-                                ),
+                                child: Image.asset(carouselImages[index],
+                                    fit: BoxFit.cover),
                               ),
                               Text(
                                 carouselText[index],
@@ -295,7 +294,8 @@ class _MainPageState extends State<MainPage> {
                                 height: 35,
                                 width: 150,
                                 decoration: BoxDecoration(
-                                  color: const Color.fromARGB(255, 240, 161, 190),
+                                  color:
+                                      const Color.fromARGB(255, 240, 161, 190),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: const Center(
@@ -315,7 +315,6 @@ class _MainPageState extends State<MainPage> {
                       },
                     ),
                     const SizedBox(height: 10),
-                    
                   ],
                 ),
               ),

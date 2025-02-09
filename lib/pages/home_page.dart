@@ -25,8 +25,8 @@ class HomePage extends StatelessWidget {
               children: [
                 const SizedBox(height: 122),
                 SizedBox(
-                  width: 150, 
-                  height: 150, 
+                  width: 150,
+                  height: 150,
                   child: SvgView(data: logo),
                 ),
                 const SizedBox(height: 30),
@@ -51,7 +51,10 @@ class HomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 308),
                 InkWell(
-                  onTap: () => Navigator.pushNamed(context, '/register'),
+                  onTap: () => {
+                    Navigator.pop(context),
+                    Navigator.pushNamed(context, '/register')
+                  },
                   child: Container(
                     height: 55,
                     width: 220,
