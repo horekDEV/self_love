@@ -37,9 +37,20 @@ class _TaskScreenForgiveness2State extends State<TaskScreenForgiveness2> {
                 decoration: const BoxDecoration(
                   color: Color(0xFFFDA1C3),
                   borderRadius: BorderRadius.all(Radius.circular(25)),
+                  image: DecorationImage(image: AssetImage('assets/taskImages/forgiveness2.jpg'), fit: BoxFit.cover)
                 ),
               ),
               const SizedBox(height: 16.0),
+              const Text(
+                  "Цель – осознать, какие эмоции и мысли мешают вам простить, и принять ответственность за свои чувства и реакцию на ситуацию, перестать зацикливаться на ошибках, увидеть в них ценный опыт и снизить уровень самокритики",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              const SizedBox(height: 20.0),
               const Center( // Центрируем текст
                 child: Text(
                   "Что нужно делать?",
@@ -238,6 +249,126 @@ class _TaskScreenForgiveness2State extends State<TaskScreenForgiveness2> {
                   color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              const Center( // Центрируем текст
+                child: Text(
+                  "Рефлексия",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              const Text(
+                "•	Как изменилось ваше отношение к ситуации после анализа?",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    contentPadding: EdgeInsets.only(bottom: -6),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "•	Как вы можете поддержать себя в этом процессе?",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    contentPadding: EdgeInsets.only(bottom: -6),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "•	Какие новые ресурсы и знания вы увидели в этой ситуации?",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    contentPadding: EdgeInsets.only(bottom: -6),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "•	Как теперь вы воспринимаете себя после этого упражнения?",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    contentPadding: EdgeInsets.only(bottom: -6),
+                  ),
                 ),
               ),
               const SizedBox(height: 24.0),

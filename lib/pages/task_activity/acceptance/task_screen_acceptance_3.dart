@@ -37,9 +37,20 @@ class _TaskScreenAcceptance1State extends State<TaskScreenAcceptance1> {
                 decoration: const BoxDecoration(
                   color: Color(0xFFFDA1C3),
                   borderRadius: BorderRadius.all(Radius.circular(25)),
+                  image: DecorationImage(image: AssetImage('assets/taskImages/acceptance3.jpg'), fit: BoxFit.cover)
                 ),
               ),
               const SizedBox(height: 16.0),
+              const Text(
+                  "Цель – научиться видеть себя целостной личностью, признать и принять свои преимущества и недостатки как важную часть себя.",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              const SizedBox(height: 20.0),
               const Center( // Центрируем текст
                 child: Text(
                   "Что нужно делать?",
@@ -88,6 +99,99 @@ class _TaskScreenAcceptance1State extends State<TaskScreenAcceptance1> {
                   color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              const Center( // Центрируем текст
+                child: Text(
+                  "Рефлексия",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              const Text(
+                "•	Что общего у моих сильных и слабых сторон?",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    contentPadding: EdgeInsets.only(bottom: -6),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "•	Как они взаимодействуют друг с другом?",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    contentPadding: EdgeInsets.only(bottom: -6),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "•	Могу ли я видеть ценность в каждой из сторон?",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    contentPadding: EdgeInsets.only(bottom: -6),
+                  ),
                 ),
               ),
               const SizedBox(height: 24.0),

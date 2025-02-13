@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:self_love/pages/main/road_page.dart';
 
 class TaskPage extends StatefulWidget {
-  const TaskPage({super.key, required this.blockNum});
+  const TaskPage({super.key, required this.blockNum, required this.setRoadState});
 
   final int blockNum;
+  final void Function() setRoadState;
 
   @override
   State<TaskPage> createState() => _TaskPageState();
@@ -25,7 +27,10 @@ class _TaskPageState extends State<TaskPage> {
       backgroundColor: const Color(0xFFFDCEDF),
       appBar: AppBar(
         backgroundColor: const Color(0xFFFDCEDF),
-        leading: const SizedBox(),
+        leading: IconButton(
+          icon: const Icon(Icons.chevron_left, color: Colors.white),
+          onPressed: () {widget.setRoadState(); Navigator.of(context).pop();}
+        ),
         centerTitle: true,
         title: const Text(
             'Упражнения блока',
@@ -136,7 +141,7 @@ class _TaskPageState extends State<TaskPage> {
 }
 
 List<List<bool>> taskStates = [
-  [false, false, false],
+  [false, true, false],
   [false, false, false],
   [false, false, false],
   [false, false, false],

@@ -15,6 +15,22 @@ class _RoadPageState extends State<RoadPage> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(Icons.chevron_left, color: Colors.white),
+          onPressed: () {
+            for (final i in taskStates) {
+              for (final j in i) {
+                if (j == false) {Navigator.of(context).pop(); print('incomplete'); return;}
+              }
+            }
+            complete = true;
+            Navigator.of(context).pop();
+          }
+        ),
+      ),
+      extendBodyBehindAppBar: true,
       body: Center(child: Stack(
         children: [
           SizedBox(
@@ -32,9 +48,9 @@ class _RoadPageState extends State<RoadPage> {
                 child: GestureDetector(
                   child: SizedBox(
                     width: 120,
-                    child: Image.asset('assets/roadComponents/tree.png', fit: BoxFit.cover)
+                    child: Image.asset(taskStates[0][0] && taskStates[0][1] && taskStates[0][2] ? 'assets/roadComponents/treeColored.png' : 'assets/roadComponents/tree.png', fit: BoxFit.cover)
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TaskPage(blockNum: 0)))
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: 0, setRoadState: () => setState(() {}),)))
                 )
               ),
               Padding(
@@ -42,9 +58,9 @@ class _RoadPageState extends State<RoadPage> {
                 child: GestureDetector(
                   child: SizedBox(
                     width: 120,
-                    child: Image.asset('assets/roadComponents/tree.png', fit: BoxFit.cover)
+                    child: Image.asset(taskStates[1][0] && taskStates[1][1] && taskStates[1][2] ? 'assets/roadComponents/treeColored.png' : 'assets/roadComponents/tree.png', fit: BoxFit.cover)
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TaskPage(blockNum: 1)))
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: 1, setRoadState: () => setState(() {}),)))
                 )
               ),
               Padding(
@@ -52,9 +68,9 @@ class _RoadPageState extends State<RoadPage> {
                 child: GestureDetector(
                   child: SizedBox(
                     width: 120,
-                    child: Image.asset('assets/roadComponents/tree.png', fit: BoxFit.cover)
+                    child: Image.asset(taskStates[3][0] && taskStates[3][1] && taskStates[3][2] ? 'assets/roadComponents/treeColored.png' : 'assets/roadComponents/tree.png', fit: BoxFit.cover)
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TaskPage(blockNum: 3)))
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: 3, setRoadState: () => setState(() {}),)))
                 )
               ),
               Padding(
@@ -62,9 +78,9 @@ class _RoadPageState extends State<RoadPage> {
                 child: GestureDetector(
                   child: SizedBox(
                     width: 120,
-                    child: Image.asset('assets/roadComponents/tree.png', fit: BoxFit.cover)
+                    child: Image.asset(taskStates[2][0] && taskStates[2][1] && taskStates[2][2] ? 'assets/roadComponents/treeColored.png' : 'assets/roadComponents/tree.png', fit: BoxFit.cover)
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TaskPage(blockNum: 2)))
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: 2, setRoadState: () => setState(() {}),)))
                 )
               ),
               Padding(
@@ -72,9 +88,9 @@ class _RoadPageState extends State<RoadPage> {
                 child: GestureDetector(
                   child: SizedBox(
                     width: 120,
-                    child: Image.asset('assets/roadComponents/tree.png', fit: BoxFit.cover)
+                    child: Image.asset(taskStates[4][0] && taskStates[4][1] && taskStates[4][2] ? 'assets/roadComponents/treeColored.png' : 'assets/roadComponents/tree.png', fit: BoxFit.cover)
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TaskPage(blockNum: 4)))
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: 4, setRoadState: () => setState(() {}),)))
                 )
               ),
             ]
@@ -84,3 +100,5 @@ class _RoadPageState extends State<RoadPage> {
     );
   }
 }
+
+bool complete = false;

@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:self_love/main.dart';
+import 'package:self_love/pages/main/road_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -166,7 +168,9 @@ class _MainPageState extends State<MainPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   InkWell(
-                    onTap: () => Navigator.pushNamed(context, '/test'),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/test');
+                    },
                     child: Padding(
                       padding: const EdgeInsets.only(top: 58),
                       child: Container(
@@ -201,7 +205,10 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () => Navigator.pushNamed(context, '/road'),
+                    onTap: () {
+                      if (complete == false) {Navigator.pushNamed(context, '/road');}
+                      else {Fluttertoast.showToast(msg: 'Вы выполнили все задания', toastLength: Toast.LENGTH_SHORT);}
+                    },
                     child: Padding(
                       padding: const EdgeInsets.only(top: 58),
                       child: Container(

@@ -44,7 +44,6 @@ class MyApp extends StatelessWidget {
         '/main': (BuildContext context) => const MainPage(),
         '/test': (BuildContext context) => const TestPage(),
         '/road': (BuildContext context) => const RoadPage(),
-        '/task': (BuildContext context) => const TaskPage(blockNum: 0),
         '/task_acceptance_1': (BuildContext context) =>
             const TaskScreenAcceptance1(),
         '/task_acceptance_2': (BuildContext context) =>

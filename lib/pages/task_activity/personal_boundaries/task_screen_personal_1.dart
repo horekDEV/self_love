@@ -37,9 +37,20 @@ class _TaskScreenPersonal1State extends State<TaskScreenPersonal1> {
                 decoration: const BoxDecoration(
                   color: Color(0xFFFDA1C3),
                   borderRadius: BorderRadius.all(Radius.circular(25)),
+                  image: DecorationImage(image: AssetImage('assets/taskImages/boundaries1.png'), )
                 ),
               ),
               const SizedBox(height: 16.0),
+              const Text(
+                  "Цель – осознать и чётко обозначить свои личные границы в разных сферах жизни. Визуализация границ помогает чётко увидеть, где происходит их нарушение и что нужно изменить.",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              const SizedBox(height: 20.0),
               const Center( // Центрируем текст
                 child: Text(
                   "Что нужно делать?",
@@ -76,6 +87,72 @@ class _TaskScreenPersonal1State extends State<TaskScreenPersonal1> {
                   color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              const Center( // Центрируем текст
+                child: Text(
+                  "Рефлексия",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              const Text(
+                "•	Где ваши границы наиболее уязвимы?",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    contentPadding: EdgeInsets.only(bottom: -6),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                "•	Почему вам сложно их защищать?",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 3.0),
+                    ),
+                    contentPadding: EdgeInsets.only(bottom: -6),
+                  ),
                 ),
               ),
               const SizedBox(height: 24.0),

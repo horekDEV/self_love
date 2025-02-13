@@ -38,7 +38,7 @@ dependencies:
   flutter_svg: ^2.0.16
   carousel_slider: ^5.0.0
   fl_chart: ^0.69.2
-  fluttertoast: ^8.2.10
+  fluttertoast: ^8.2.12
   re_svg: ^0.0.5
 
 dev_dependencies:
@@ -71,6 +71,7 @@ flutter:
     - assets/images/
     - assets/roadComponents/
     - assets/taskIcons/
+    - assets/taskImages/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
