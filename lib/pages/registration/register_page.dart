@@ -166,9 +166,18 @@ class _RegisterPageState extends State<RegisterPage> {
                       textColor: Colors.black,
                       gravity: ToastGravity.BOTTOM,
                     );
+                  } else if (name.isEmpty) {
+                    Fluttertoast.showToast(
+                      msg:
+                          "Вы не вписали свое имя!",
+                      toastLength: Toast.LENGTH_SHORT,
+                      backgroundColor: Colors.white,
+                      textColor: Colors.black,
+                      gravity: ToastGravity.BOTTOM,
+                    );
                   } else {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, '/main', arguments: name);
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/main', arguments: name);
                   }
                 },
                 child: Container(

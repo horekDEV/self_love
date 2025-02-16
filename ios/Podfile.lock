@@ -2,12 +2,10 @@ PODS:
   - Flutter (1.0.0)
   - fluttertoast (0.0.2):
     - Flutter
-    - Toast
   - re_svg (0.0.1):
     - Flutter
     - resvg (~> 0.1.2)
   - resvg (0.1.2)
-  - Toast (4.1.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -17,7 +15,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - resvg
-    - Toast
 
 EXTERNAL SOURCES:
   Flutter:
@@ -29,10 +26,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  fluttertoast: 76fea30fcf04176325f6864c87306927bd7d2038
+  fluttertoast: 2c67e14dce98bbdb200df9e1acf610d7a6264ea1
   re_svg: 0522166aeb720488c4379349894af5d2f4994a3a
   resvg: 0c79160ff7225147153f9c8e2bda5377714a4a54
-  Toast: ec33c32b8688982cecc6348adeae667c1b9938da
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
 
