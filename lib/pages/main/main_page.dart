@@ -116,7 +116,7 @@ class _MainPageState extends State<MainPage> {
                       style: TextStyle(
                         fontSize: phraseSizes[phraseNum],
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFFFDA1C3),
+                        color: const Color(0xFFFDA1C3),
                       ),
                     ),
                   ],
@@ -206,8 +206,13 @@ class _MainPageState extends State<MainPage> {
                   ),
                   InkWell(
                     onTap: () {
-                      if (complete == false) {Navigator.pushNamed(context, '/road');}
-                      else {Fluttertoast.showToast(msg: 'Вы выполнили все задания', toastLength: Toast.LENGTH_SHORT);}
+                      if (complete == false) {
+                        Navigator.pushNamed(context, '/road');
+                      } else {
+                        Fluttertoast.showToast(
+                            msg: 'Вы выполнили все задания',
+                            toastLength: Toast.LENGTH_LONG);
+                      }
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(top: 58),
@@ -297,25 +302,36 @@ class _MainPageState extends State<MainPage> {
                                 ),
                                 textAlign: TextAlign.center,
                               ),
-                              Container(
-                                height: 35,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromARGB(255, 240, 161, 190),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    "Перейти",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
+                              InkWell(
+                                onTap: () {
+                                  if (index == 0) {
+                                    Navigator.pushNamed(context, "/thanks");
+                                  } else if (index == 1) {
+                                    Navigator.pushNamed(context, "/goal");
+                                  } else if (index == 2) {
+                                    Navigator.pushNamed(context, "/thought");
+                                  }
+                                },
+                                child: Container(
+                                  height: 35,
+                                  width: 150,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 240, 161, 190),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      "Перейти",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         );

@@ -118,8 +118,8 @@ class _LoginPageState extends State<LoginPage> {
                         color: Color(0xFFEEB8CC),
                         borderRadius: BorderRadius.all(Radius.circular(25)),
                       ),
-                      height: 370.0,
-                      width: 310.0,
+                      height: 370,
+                      width: 310,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:self_love/pages/main/main_page.dart';
 import 'package:self_love/pages/main/road_page.dart';
+import 'package:self_love/pages/otherScreens/goal_settings_page.dart';
+import 'package:self_love/pages/otherScreens/thanks_diary_page.dart';
+import 'package:self_love/pages/otherScreens/thoughts_diary_page.dart';
 import 'package:self_love/pages/profile/profile_page.dart';
 import 'package:self_love/pages/registration/register_page.dart';
 import 'package:self_love/pages/registration/send_code_page.dart';
@@ -43,6 +46,9 @@ class MyApp extends StatelessWidget {
         '/main': (BuildContext context) => const MainPage(),
         '/test': (BuildContext context) => const TestPage(),
         '/road': (BuildContext context) => const RoadPage(),
+        '/goal': (BuildContext context) => const GoalSettingsPage(),
+        '/thanks': (BuildContext context) => const ThanksDiaryPage(),
+        '/thoughts': (BuildContext context) => const ThoughtsDiaryPage(),
         '/task_acceptance_1': (BuildContext context) =>
             const TaskScreenAcceptance1(),
         '/task_acceptance_2': (BuildContext context) =>
@@ -61,9 +67,12 @@ class MyApp extends StatelessWidget {
         '/task_child_1': (BuildContext context) => const TaskScreenChild1(),
         '/task_child_2': (BuildContext context) => const TaskScreenChild2(),
         '/task_child_3': (BuildContext context) => const TaskScreenChild3(),
-        '/task_forgiveness_1': (BuildContext context) => const TaskScreenForgiveness1(),
-        '/task_forgiveness_2': (BuildContext context) => const TaskScreenForgiveness2(),
-        '/task_forgiveness_3': (BuildContext context) => const TaskScreenForgiveness3(),
+        '/task_forgiveness_1': (BuildContext context) =>
+            const TaskScreenForgiveness1(),
+        '/task_forgiveness_2': (BuildContext context) =>
+            const TaskScreenForgiveness2(),
+        '/task_forgiveness_3': (BuildContext context) =>
+            const TaskScreenForgiveness3(),
       },
     );
   }

@@ -22,7 +22,7 @@ class _RoadPageState extends State<RoadPage> {
           onPressed: () {
             for (final i in taskStates) {
               for (final j in i) {
-                if (j == false) {Navigator.of(context).pop(); print('incomplete'); return;}
+                if (j == false) {Navigator.of(context).pop(); return;}
               }
             }
             complete = true;

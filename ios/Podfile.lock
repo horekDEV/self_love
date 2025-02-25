@@ -1,15 +1,22 @@
 PODS:
+  - audioplayers_darwin (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - fluttertoast (0.0.2):
     - Flutter
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
   - re_svg (0.0.1):
     - Flutter
     - resvg (~> 0.1.2)
   - resvg (0.1.2)
 
 DEPENDENCIES:
+  - audioplayers_darwin (from `.symlinks/plugins/audioplayers_darwin/ios`)
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - re_svg (from `.symlinks/plugins/re_svg/ios`)
 
 SPEC REPOS:
@@ -17,16 +24,22 @@ SPEC REPOS:
     - resvg
 
 EXTERNAL SOURCES:
+  audioplayers_darwin:
+    :path: ".symlinks/plugins/audioplayers_darwin/ios"
   Flutter:
     :path: Flutter
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   re_svg:
     :path: ".symlinks/plugins/re_svg/ios"
 
 SPEC CHECKSUMS:
+  audioplayers_darwin: ccf9c770ee768abb07e26d90af093f7bab1c12ab
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   fluttertoast: 2c67e14dce98bbdb200df9e1acf610d7a6264ea1
+  path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
   re_svg: 0522166aeb720488c4379349894af5d2f4994a3a
   resvg: 0c79160ff7225147153f9c8e2bda5377714a4a54
 

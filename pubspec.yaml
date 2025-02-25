@@ -40,6 +40,7 @@ dependencies:
   fl_chart: ^0.69.2
   fluttertoast: ^8.2.12
   re_svg: ^0.0.5
+  audioplayers: ^6.1.2
 
 dev_dependencies:
   flutter_test:
