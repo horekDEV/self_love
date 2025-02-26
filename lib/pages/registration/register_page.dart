@@ -9,11 +9,13 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
-  String name = '';
+String name = '';
   int selectedMood = 0;
   String email = '';
   String password = '';
+
+class _RegisterPageState extends State<RegisterPage> {
+  
 
   @override
   Widget build(BuildContext context) {

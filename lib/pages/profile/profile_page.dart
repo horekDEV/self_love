@@ -1,5 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:self_love/pages/registration/register_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -11,6 +13,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 double value = 0.0;
+String goal = '';
 
 class _ProfilePageState extends State<ProfilePage> {
   List<bool> isCheckedList = [false, false, false, false];
@@ -30,11 +33,15 @@ class _ProfilePageState extends State<ProfilePage> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        leading: IconButton(
+          icon: const Icon(Icons.chevron_left, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
+        )
       ),
       body: SingleChildScrollView(
           child: Column(
             children: [
-              const Padding(
+              Padding(
                   padding: EdgeInsets.only(top: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -43,11 +50,11 @@ class _ProfilePageState extends State<ProfilePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _LabelledTextField(label: 'Email'),
+                        _LabelledTextField(label: email),
                         SizedBox(height: 20),
-                        _LabelledTextField(label: 'Name'),
+                        _LabelledTextField(label: name),
                         SizedBox(height: 20),
-                        _LabelledTextField(label: 'Password'),
+                        _LabelledTextField(label: password),
                       ],
                     ),
                     Icon(
@@ -80,9 +87,26 @@ class _ProfilePageState extends State<ProfilePage> {
                       color: Color(0xFFF2BED1),
                       borderRadius: BorderRadius.all(Radius.circular(25))
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  child: Stack(
                     children: [
+                      Text(
+                        goal,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextField(
+                        style: TextStyle(color: Colors.transparent),
+                        cursorColor: Colors.transparent,
+                        showCursor: false,
+                        autocorrect: false,
+                        enableSuggestions: false,
+                        maxLines: 1000,
+                        decoration: InputDecoration(border: InputBorder.none),
+                        onChanged: (a) {goal = a; setState(() {});},
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -94,14 +118,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           const SizedBox(width: 25)
                         ]
                       ),
-                      const Text(
-                        "Test text",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      
                     ],
                   ),
                 ),

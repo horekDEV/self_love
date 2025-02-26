@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:self_love/main.dart';
 import 'package:self_love/pages/main/road_page.dart';
+import 'package:self_love/pages/profile/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -125,7 +126,7 @@ class _MainPageState extends State<MainPage> {
               const Padding(
                 padding: EdgeInsets.only(top: 30),
                 child: Text(
-                  "Твой уровень любви к себе поднят на:",
+                  "Твой уровень любви к себе",
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
@@ -144,19 +145,19 @@ class _MainPageState extends State<MainPage> {
                   child: Stack(
                     children: [
                       Container(
-                        width: 335 * 0.67,
+                        width: 335 * value,
                         height: 40,
                         decoration: const BoxDecoration(
                           color: Color(0xFFF2BED1),
                         ),
                       ),
-                      const Center(
+                      Center(
                         child: Text(
-                          "67%",
+                          "${value * 100}%",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: const Color.fromARGB(255, 255, 139, 187),
                           ),
                         ),
                       ),

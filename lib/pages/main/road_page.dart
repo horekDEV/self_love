@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:self_love/pages/main/subscription_dialog.dart';
 import 'package:self_love/pages/task_activity/task_page.dart';
 
 class RoadPage extends StatefulWidget {
@@ -50,7 +51,7 @@ class _RoadPageState extends State<RoadPage> {
                     width: 120,
                     child: Image.asset(taskStates[0][0] && taskStates[0][1] && taskStates[0][2] ? 'assets/roadComponents/treeColored.png' : 'assets/roadComponents/tree.png', fit: BoxFit.cover)
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: 0, setRoadState: () => setState(() {}),)))
+                  onTap: () => openTask(0)
                 )
               ),
               Padding(
@@ -60,7 +61,7 @@ class _RoadPageState extends State<RoadPage> {
                     width: 120,
                     child: Image.asset(taskStates[1][0] && taskStates[1][1] && taskStates[1][2] ? 'assets/roadComponents/treeColored.png' : 'assets/roadComponents/tree.png', fit: BoxFit.cover)
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: 1, setRoadState: () => setState(() {}),)))
+                  onTap: () => openTask(1)
                 )
               ),
               Padding(
@@ -70,7 +71,7 @@ class _RoadPageState extends State<RoadPage> {
                     width: 120,
                     child: Image.asset(taskStates[3][0] && taskStates[3][1] && taskStates[3][2] ? 'assets/roadComponents/treeColored.png' : 'assets/roadComponents/tree.png', fit: BoxFit.cover)
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: 3, setRoadState: () => setState(() {}),)))
+                  onTap: () => openTask(3)
                 )
               ),
               Padding(
@@ -80,7 +81,7 @@ class _RoadPageState extends State<RoadPage> {
                     width: 120,
                     child: Image.asset(taskStates[2][0] && taskStates[2][1] && taskStates[2][2] ? 'assets/roadComponents/treeColored.png' : 'assets/roadComponents/tree.png', fit: BoxFit.cover)
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: 2, setRoadState: () => setState(() {}),)))
+                  onTap: () => openTask(2)
                 )
               ),
               Padding(
@@ -90,7 +91,7 @@ class _RoadPageState extends State<RoadPage> {
                     width: 120,
                     child: Image.asset(taskStates[4][0] && taskStates[4][1] && taskStates[4][2] ? 'assets/roadComponents/treeColored.png' : 'assets/roadComponents/tree.png', fit: BoxFit.cover)
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: 4, setRoadState: () => setState(() {}),)))
+                  onTap: () => openTask(4)
                 )
               ),
             ]
@@ -99,6 +100,16 @@ class _RoadPageState extends State<RoadPage> {
       ))
     );
   }
+
+  void openTask(int id) {
+    if (subscribed || (subscribed == false && id == 0)) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: id, setRoadState: () => setState(() {}),)));
+    }
+    else {
+      showDialog(context: context, builder: (context) => const SubscriptionDialog());
+    }
+  }
 }
 
 bool complete = false;
+bool subscribed = false;

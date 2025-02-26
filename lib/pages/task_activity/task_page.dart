@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:self_love/pages/profile/profile_page.dart';
 
 class TaskPage extends StatefulWidget {
   const TaskPage({super.key, required this.blockNum, required this.setRoadState});
@@ -21,7 +24,7 @@ class _TaskPageState extends State<TaskPage> {
   
   @override
   Widget build(BuildContext context) {
-    callback = () => setState(() {});
+    callback = () {value = min(value + 0.067, 1); setState(() {});};
     return Scaffold(
       backgroundColor: const Color(0xFFFDCEDF),
       appBar: AppBar(
@@ -140,7 +143,7 @@ class _TaskPageState extends State<TaskPage> {
 }
 
 List<List<bool>> taskStates = [
-  [false, true, false],
+  [false, false, false],
   [false, false, false],
   [false, false, false],
   [false, false, false],
