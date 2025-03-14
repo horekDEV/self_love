@@ -41,6 +41,7 @@ dependencies:
   fluttertoast: ^8.2.12
   re_svg: ^0.0.5
   audioplayers: ^6.1.2
+  just_audio: ^0.9.46
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +74,7 @@ flutter:
     - assets/roadComponents/
     - assets/taskIcons/
     - assets/taskImages/
+    - assets/sfx/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

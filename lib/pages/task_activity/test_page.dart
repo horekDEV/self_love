@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:self_love/main.dart';
+import 'package:self_love/pages/main/road_page.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});
@@ -7,9 +9,13 @@ class TestPage extends StatefulWidget {
   State<TestPage> createState() => _TestPageState();
 }
 
+double testResult = 0;
+bool testComplete = false;
+
 class _TestPageState extends State<TestPage> {
   double sliderValue = 50.0;
   int count = 0;
+  double testSum = 0;
   List<double> questionAnswers = [];
   List<String> questions = [
     "Я принимаю себя таким(ой), какой(ая) я есть, со всеми достоинствами и недостатками.",
@@ -28,7 +34,10 @@ class _TestPageState extends State<TestPage> {
   ];
 
   void _finishTest() {
-    Navigator.pushNamed(context, '/test-results', arguments: questionAnswers);
+    testResult = testSum / (count + 1) ~/ 0.1 / 10;
+    testComplete = true;
+    player.setAsset('assets/sfx/block_complete.mp3');
+    Navigator.of(context).pop();
   }
 
   void _nextQuestion() {
@@ -38,7 +47,9 @@ class _TestPageState extends State<TestPage> {
         _finishTest();
       } else {
         count += 1;
+        testSum += sliderValue;
         sliderValue = 50.0;
+        player.setAsset('assets/sfx/level_complete.mp3');
       }
     });
   }

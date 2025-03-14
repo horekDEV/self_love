@@ -1,11 +1,16 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 import 'features/myApp.dart';
 
-void main() {
+final player = AudioPlayer();
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   phraseNum = Random().nextInt(phraseLength);
+  await player.setVolume(2);
   runApp(const MyApp());
 }
 

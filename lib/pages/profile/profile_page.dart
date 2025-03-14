@@ -1,7 +1,11 @@
+import 'dart:math';
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:self_love/pages/main/road_page.dart';
 import 'package:self_love/pages/registration/register_page.dart';
+import 'package:self_love/pages/task_activity/test_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -18,6 +22,21 @@ String goal = '';
 class _ProfilePageState extends State<ProfilePage> {
   List<bool> isCheckedList = [false, false, false, false];
   final TextEditingController textController = TextEditingController();
+  int activeChart = 0;
+
+  List<List<String>> chartLabels = [
+    ['Пн', 'Вт', 'Ср', 'Чт', 'Пт'],
+    ['1', '2', '3', '4', '5'],
+    ['Ноя', 'Дек', 'Янв', 'Фев', 'Мар'],
+    ['2021', '2022', '2023', '2024', '2025'],
+  ];
+
+  List<List<double>> barValues = [
+    [5, 8, 3, 7, 6],
+    [20, 25, 23, 27, 32],
+    [147, 167, 131, 163, 170],
+    [1016, 1645, 1428, 1861, 1724]
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -89,25 +108,26 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   child: Stack(
                     children: [
-                      Text(
+                      Center(child: Padding(padding: const EdgeInsets.all(10), child: Text(
                         goal,
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: goal.length <= 56 ? 20 : 15,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
-                      ),
+                      ),)),
                       TextField(
-                        style: TextStyle(color: Colors.transparent),
+                        style: TextStyle(color: Colors.transparent, fontSize: 20, fontWeight: FontWeight.bold,),
                         cursorColor: Colors.transparent,
                         showCursor: false,
                         autocorrect: false,
                         enableSuggestions: false,
                         maxLines: 1000,
                         decoration: InputDecoration(border: InputBorder.none),
-                        onChanged: (a) {goal = a; setState(() {});},
+                        onChanged: (a) {if (a.length <= 114) goal = a; setState(() {});},
                       ),
-                      Row(
+                      Padding(padding: const EdgeInsets.only(top: 5), child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Image.asset(
@@ -117,7 +137,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           const SizedBox(width: 25)
                         ]
-                      ),
+                      ),)
                       
                     ],
                   ),
@@ -151,13 +171,13 @@ class _ProfilePageState extends State<ProfilePage> {
                           color: Color(0xFFF2BED1),
                         ),
                       ),
-                      const Center(
+                      Center(
                         child: Text(
-                          "num",
+                          "${value * 100}%",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: const Color.fromARGB(255, 255, 139, 187),
                           ),
                         ),
                       ),
@@ -190,7 +210,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             color: Color(0xFFF2BED1),
                             borderRadius: BorderRadius.all(Radius.circular(20))
                         ),
-                        child: const Column(
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -203,7 +223,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ),
                             Text(
-                              "???%",
+                              "$testResult%",
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -299,52 +319,41 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _timeFilterButton("День", const Color(0xFFD48BA6)),
-                    _timeFilterButton("Неделя", const Color(0xFFF2BED1)),
-                    _timeFilterButton("Месяц", const Color(0xFFF2BED1)),
-                    _timeFilterButton("Год", const Color(0xFFF2BED1)),
+                    _timeFilterButton("День", 0),
+                    _timeFilterButton("Неделя", 1),
+                    _timeFilterButton("Месяц", 2),
+                    _timeFilterButton("Год", 3),
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 40),
+                padding: const EdgeInsets.only(top: 40,),
                 child: SizedBox(
                   height: 200,
                   width: 350,
                   child: BarChart(
                     BarChartData(
                       barGroups: [
-                        _makeBarData(0, 5),
-                        _makeBarData(1, 8),
-                        _makeBarData(2, 3),
-                        _makeBarData(3, 7),
-                        _makeBarData(4, 6),
+                        _makeBarData(0, barValues[activeChart][0]),
+                        _makeBarData(1, barValues[activeChart][1]),
+                        _makeBarData(2, barValues[activeChart][2]),
+                        _makeBarData(3, barValues[activeChart][3]),
+                        _makeBarData(4, barValues[activeChart][4]),
                       ],
                       titlesData: FlTitlesData(
                         leftTitles: const AxisTitles(
-                          sideTitles: SideTitles(showTitles: true, interval: 2),
+                          sideTitles: SideTitles(showTitles: true, reservedSize: 40,),
                         ),
                         bottomTitles: AxisTitles(
                           sideTitles: SideTitles(
-                            showTitles: true,
+                            showTitles: true, maxIncluded: false,
                             getTitlesWidget: (double value, _) {
-                              switch (value.toInt()) {
-                                case 0:
-                                  return const Text("Пн");
-                                case 1:
-                                  return const Text("Вт");
-                                case 2:
-                                  return const Text("Ср");
-                                case 3:
-                                  return const Text("Чт");
-                                case 4:
-                                  return const Text("Пт");
-                                default:
-                                  return const Text("");
-                              }
+                              return Text(chartLabels[activeChart][value.toInt()]);
                             },
                           ),
                         ),
+                        topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                        rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
                       ),
                       borderData: FlBorderData(show: false),
                       gridData: const FlGridData(show: true),
@@ -365,8 +374,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-        Wrap(
+              const SizedBox(height: 15),
+        Padding(padding: const EdgeInsets.only(right: 150), child: Wrap(
           spacing: 20,
+          direction: Axis.vertical,
           children: List.generate(
             isCheckedList.length,
                 (index) => Row(
@@ -417,10 +428,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     decoration: const InputDecoration(
                       hintText: "Enter text",
                       hintStyle: TextStyle(color: Colors.white70),
-                      border: OutlineInputBorder(
+                      border: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.white),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.white),
                       ),
                     ),
@@ -430,17 +444,26 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
-        ),
-              const Padding(
-                padding: EdgeInsets.only(top: 70, bottom: 40),
-                child: Text(
-                  "Выйти из аккаунта",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+        ),),
+              Padding(
+                padding: const EdgeInsets.only(top: 70, bottom: 40),
+                child: GestureDetector(
+                  onTap: () {
+                    complete = false;
+                    testComplete = false;
+                    value = 0;
+                    Navigator.of(context).popUntil((route) => route.isFirst,);
+                    Navigator.of(context).pushReplacementNamed('/register');
+                  },
+                  child: const Text(
+                    "Выйти из аккаунта",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
+                )
               ),
             ],
           ),
@@ -448,12 +471,14 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _timeFilterButton(String text, Color color) {
-    return Container(
+  Widget _timeFilterButton(String text, int id) {
+    return GestureDetector(
+      onTap: () => setState(() => activeChart = id),
+      child: Container(
       width: 85,
       height: 24,
       decoration: BoxDecoration(
-        color: color,
+        color: activeChart == id ? const Color(0xFFD48BA6) : const Color(0xFFF2BED1),
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       child: Center(
@@ -466,6 +491,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ),
       ),
+    )
     );
   }
 

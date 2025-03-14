@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:self_love/features/myApp.dart';
+import 'package:self_love/main.dart';
 import 'package:self_love/pages/main/subscription_dialog.dart';
 import 'package:self_love/pages/task_activity/task_page.dart';
 
@@ -102,13 +106,24 @@ class _RoadPageState extends State<RoadPage> {
   }
 
   void openTask(int id) {
-    if (subscribed || (subscribed == false && id == 0)) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: id, setRoadState: () => setState(() {}),)));
+    if (subscribed || id == 0) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => TaskPage(blockNum: id, setRoadState: () {
+        setState(() {});
+        if (taskStates[id][0] && taskStates[id][1] && taskStates[id][2]) {
+          player.setAsset('assets/sfx/block_complete.mp3');
+        }
+      },)));
     }
     else {
+      playSubscriptionSfx();
       showDialog(context: context, builder: (context) => const SubscriptionDialog());
     }
   }
+}
+
+void playSubscriptionSfx() async {
+  final num = Random().nextInt(100);
+  num >= 15 ? player.setAsset('assets/sfx/subscribe.mp3') : player.setAsset('assets/sfx/subscribe.mp3');
 }
 
 bool complete = false;

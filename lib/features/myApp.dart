@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:self_love/pages/main/main_page.dart';
 import 'package:self_love/pages/main/road_page.dart';
 import 'package:self_love/pages/otherScreens/goal_settings_page.dart';

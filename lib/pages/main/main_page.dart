@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:self_love/main.dart';
 import 'package:self_love/pages/main/road_page.dart';
 import 'package:self_love/pages/profile/profile_page.dart';
+import 'package:self_love/pages/task_activity/test_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -170,7 +171,14 @@ class _MainPageState extends State<MainPage> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, '/test');
+                      if (testComplete == false) {
+                        Navigator.pushNamed(context, '/test');
+                      }
+                      else {
+                        Fluttertoast.showToast(
+                            msg: 'Вы прошли тестирование',
+                            toastLength: Toast.LENGTH_LONG);
+                      }
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(top: 58),

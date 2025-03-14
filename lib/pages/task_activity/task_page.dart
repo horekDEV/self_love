@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:self_love/main.dart';
 import 'package:self_love/pages/profile/profile_page.dart';
 
 class TaskPage extends StatefulWidget {
@@ -24,7 +25,12 @@ class _TaskPageState extends State<TaskPage> {
   
   @override
   Widget build(BuildContext context) {
-    callback = () {value = min(value + 0.067, 1); setState(() {});};
+    callback = () async {
+      value = min(value + 0.067, 1);
+      setState(() {});
+      await player.setAsset('assets/sfx/level_complete.mp3');
+      await player.play();
+    };
     return Scaffold(
       backgroundColor: const Color(0xFFFDCEDF),
       appBar: AppBar(
